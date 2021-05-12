@@ -25,13 +25,13 @@ export default function Posts() {
     }, []);
 
     return (
-        <main className="bg-green-100 min-h-screen p-12">
+        <main className="bg-indigo-100 min-h-screen p-12">
             <section className="container mx-auto">
                 <h1 className="text-5xl flex justify-center cursive">
-                    Blog Posts Page
+                    My Blog
                 </h1>
-                <h2 className="text-lg text-gray-600 flex justify-center mb-12">
-                    Welcome to my page of blog posts
+                <h2 className="text-lg text-gray-700 flex justify-center mb-12">
+                    Check out what I'm writing about
                 </h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {postData &&
@@ -42,7 +42,7 @@ export default function Posts() {
                                     key={post.slug.current}
                                 >
                                     <span
-                                        className="block h-64 relative rounded shadow leading-snug bg-white border-l-8 border-green-400"
+                                        className="block h-64 relative rounded shadow leading-snug bg-white border-l-8 border-yellow-400"
                                         key={index}
                                     >
                                         <img
@@ -51,7 +51,7 @@ export default function Posts() {
                                             className="w-full h-full rounded-r object-cover absolute"
                                         />
                                         <span className="block relative h-full flex justify-end items-end pr-4 pb-4">
-                                            <h3 className="text-gray-800 text-lg font-bold px-3 py-4 bg-red-700 text-red-100 bg-opacity-75">
+                                            <h3 className="text-gray-800 text-lg font-bold px-3 py-4 bg-yellow-400 text-gray-900 bg-opacity-70">
                                                 {post.title}
                                             </h3>
                                         </span>
