@@ -37,7 +37,7 @@ export default function Navbar() {
                         About
                     </NavLink>
                 </nav>
-                <div className="invisible inline-flex py-3 px-3 my-6">
+                {/* <div className="invisible inline-flex py-3 px-3 my-6">
                     <SocialIcon
                         url="https://www.linkedin.com/in/nlewis84/"
                         className="sm:visible mr-4"
@@ -62,7 +62,7 @@ export default function Navbar() {
                         fgColor="#FFF"
                         style={{ height: 35, width: 35 }}
                     />
-                </div>
+                </div> */}
             </div>
         </header>
     );

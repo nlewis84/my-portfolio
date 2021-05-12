@@ -35,18 +35,23 @@ export default function SinglePost() {
             .catch(console.error);
     }, [slug]);
 
-    if (!singlePost) return <div>Loading...</div>;
+    if (!singlePost)
+        return (
+            <main className="bg-indigo-100 min-h-screen p-12">
+                <article className="container shadow-lg mx-auto bg-gray-100 rounded-lg" />
+            </main>
+        );
 
     return (
-        <main className="bg-gray-200 min-h-screen p-12">
-            <article className="container shadow-lg mx-auto bg-green-100 rounded-lg">
+        <main className="bg-indigo-100 min-h-screen p-12">
+            <article className="container shadow-lg mx-auto bg-gray-100 rounded-lg">
                 <header className="relative">
                     <div className="absolute h-full w-full flex items-center justify-center p-8">
-                        <div className="bg-white bg-opacity-75 rounded p-12">
-                            <h1 className="cursive text-3xl lg:text-6xl mb-4">
+                        <div className="bg-yellow-400 bg-opacity-70 rounded p-12">
+                            <h1 className="cursive text-3xl lg:text-6xl mb-4 text-gray-900">
                                 {singlePost.title}
                             </h1>
-                            <div className="flex justify-center text-gray-800">
+                            <div className="flex justify-center text-gray-900">
                                 <img
                                     src={urlFor(singlePost.authorImage).url()}
                                     alt={singlePost.name}
