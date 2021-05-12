@@ -25,9 +25,9 @@ export default {
             type: "string",
             options: {
                 list: [
-                    { value: "personal", title: "Personal" },
-                    { value: "client", title: "Client" },
-                    { value: "school", title: "School" },
+                    { value: "Personal", title: "Personal" },
+                    { value: "Client", title: "Client" },
+                    { value: "School", title: "School" },
                 ],
             },
         },
