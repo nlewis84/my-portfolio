@@ -21,7 +21,7 @@ export default function SinglePost() {
             _id,
             slug,
             mainImage {
-                assest->{
+                asset->{
                     _id,
                     url
                 }
@@ -65,7 +65,7 @@ export default function SinglePost() {
                         style={{ height: "400px" }}
                     />
                 </header>
-                <div className="px-1 lg:px-48 py-12 lg:py-20 prose lg:prose-xl mx-w-full">
+                <div className="px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
                     <BlockContent
                         blocks={singlePost.body}
                         projectId="46knf8eh"
