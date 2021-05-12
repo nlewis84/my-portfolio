@@ -25,7 +25,23 @@ export default function About() {
             .catch(console.error);
     }, []);
 
-    if (!author) return <div></div>;
+    if (!author)
+        return (
+            <main className="relative">
+                <img
+                    src={image}
+                    alt="Moraine Park in Estes Park, Colorado"
+                    className="absolute w-full"
+                />
+                <div className="p-10 lg:pt-28 container mx-auto relative">
+                    <section className="bg-gray-900 rounded-lg shadow-2xl lg:flex p-20 bg-opacity-75">
+                        <h1 className="cursive text-6xl text-white mb-4">
+                            Loading...
+                        </h1>
+                    </section>
+                </div>
+            </main>
+        );
 
     return (
         <main className="relative">
