@@ -30,6 +30,7 @@ export default function SinglePost() {
             title,
             _id,
             slug,
+            publishedAt,
             mainImage {
                 asset->{
                     _id,
@@ -68,7 +69,10 @@ export default function SinglePost() {
                                     className="w-10 h-10 rounded-full"
                                 />
                                 <p className="cursive flex items-center pl-2 text-2xl">
-                                    {singlePost.name}
+                                    {singlePost.name} on{" "}
+                                    {new Date(
+                                        singlePost.publishedAt
+                                    ).toLocaleDateString()}
                                 </p>
                             </div>
                         </div>

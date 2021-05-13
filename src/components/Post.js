@@ -55,7 +55,9 @@ export default function Posts() {
                                             <h3 className="text-gray-800 text-lg font-bold px-3 py-4 bg-yellow-400 text-gray-900 bg-opacity-70">
                                                 {post.title}
                                                 <span className="flex justify-end text-sm font-semibold">
-                                                    {post.publishedAt}
+                                                    {new Date(
+                                                        post.publishedAt
+                                                    ).toLocaleDateString()}
                                                 </span>
                                             </h3>
                                         </span>
