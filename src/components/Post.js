@@ -8,9 +8,10 @@ export default function Posts() {
     useEffect(() => {
         sanityClient
             .fetch(
-                `*[_type == "post"]{
+                `*[_type == "post"] | order(publishedAt desc) {
             title,
             slug,
+            publishedAt,
             mainImage {
                 asset->{
                     _id,

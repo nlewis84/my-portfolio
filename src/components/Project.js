@@ -7,7 +7,7 @@ export default function Project() {
     useEffect(() => {
         sanityClient
             .fetch(
-                `*[_type == "project"]{
+                `*[_type == "project"] | order(date desc) {
             title,
             date,
             place,
@@ -30,7 +30,7 @@ export default function Project() {
                 <h2 className="text-lg text-gray-700 flex justify-center mb-12">
                     Check out what I've been building
                 </h2>
-                <section className="grid grid-cols-2 gap-8">
+                <section className="grid md:grid-cols-2 gap-8">
                     {projectData &&
                         projectData.map((project, index) => (
                             <article className="relative rounded-lg shadow-xl bg-white p-16">
@@ -44,8 +44,8 @@ export default function Project() {
                                         {project.title}
                                     </a>
                                 </h3>
-                                <div className="text-gray-500 text-xs space-x-4">
-                                    <span>
+                                <div className="text-gray-500 text-xs md:space-x-4">
+                                    <span className="inline-block">
                                         <strong className="font-bold">
                                             Finished on
                                         </strong>
@@ -54,13 +54,13 @@ export default function Project() {
                                             project.date
                                         ).toLocaleDateString()}
                                     </span>
-                                    <span>
+                                    <span className="inline-block">
                                         <strong className="font-bold">
                                             Organization
                                         </strong>
                                         : {project.place}
                                     </span>
-                                    <span>
+                                    <span className="inline-block">
                                         <strong className="font-bold">
                                             Type
                                         </strong>
