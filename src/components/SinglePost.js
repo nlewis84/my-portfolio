@@ -9,6 +9,16 @@ function urlFor(source) {
     return builder.image(source);
 }
 
+const serializers = {
+    types: {
+        code: (props) => (
+            <pre data-language={props.node.language}>
+                <code>{props.node.code}</code>
+            </pre>
+        ),
+    },
+};
+
 export default function SinglePost() {
     const [singlePost, setSinglePost] = useState(null);
     const { slug } = useParams();
@@ -43,12 +53,12 @@ export default function SinglePost() {
         );
 
     return (
-        <main className="bg-indigo-100 min-h-screen p-12">
+        <main className="bg-indigo-100 min-h-screen p-2 md:p-12">
             <article className="container shadow-lg mx-auto bg-gray-100 rounded-lg">
                 <header className="relative">
                     <div className="absolute h-full w-full flex items-center justify-center p-8">
                         <div className="bg-yellow-400 bg-opacity-70 rounded p-12">
-                            <h1 className="cursive text-3xl lg:text-6xl mb-4 text-gray-900">
+                            <h1 className="cursive text-3xl lg:text-6xl mb-4">
                                 {singlePost.title}
                             </h1>
                             <div className="flex justify-center text-gray-900">
@@ -70,11 +80,12 @@ export default function SinglePost() {
                         style={{ height: "400px" }}
                     />
                 </header>
-                <div className="px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
+                <div className="px-8 lg:px-48 p-8 lg:py-12 lg:py-20 prose lg:prose-xl max-w-full">
                     <BlockContent
                         blocks={singlePost.body}
                         projectId="46knf8eh"
                         dataset="production"
+                        serializers={serializers}
                     />
                 </div>
             </article>
