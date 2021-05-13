@@ -27,7 +27,7 @@ export default function About() {
 
     if (!author)
         return (
-            <main className="flex-grow">
+            <main className="relative flex-grow">
                 <img
                     src={image}
                     alt="Moraine Park in Estes Park, Colorado"

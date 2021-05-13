@@ -69,10 +69,7 @@ export default function SinglePost() {
                                     className="w-10 h-10 rounded-full"
                                 />
                                 <p className="cursive flex items-center pl-2 text-2xl">
-                                    {singlePost.name} on{" "}
-                                    {new Date(
-                                        singlePost.publishedAt
-                                    ).toLocaleDateString()}
+                                    {singlePost.name}
                                 </p>
                             </div>
                         </div>
@@ -85,6 +82,10 @@ export default function SinglePost() {
                     />
                 </header>
                 <div className="px-4 lg:px-48 p-4 lg:py-12 lg:py-20 prose lg:prose-xl max-w-full">
+                    <aside className="text-gray-400">
+                        Published on{" "}
+                        {new Date(singlePost.publishedAt).toLocaleDateString()}
+                    </aside>
                     <BlockContent
                         blocks={singlePost.body}
                         projectId="46knf8eh"
