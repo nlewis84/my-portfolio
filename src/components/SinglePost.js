@@ -80,7 +80,7 @@ export default function SinglePost() {
                         style={{ height: "400px" }}
                     />
                 </header>
-                <div className="px-8 lg:px-48 p-8 lg:py-12 lg:py-20 prose lg:prose-xl max-w-full">
+                <div className="px-4 lg:px-48 p-4 lg:py-12 lg:py-20 prose lg:prose-xl max-w-full">
                     <BlockContent
                         blocks={singlePost.body}
                         projectId="46knf8eh"

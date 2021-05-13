@@ -22,7 +22,7 @@ export default function Project() {
     }, []);
 
     return (
-        <main className="bg-indigo-100 min-h-screen p-12">
+        <main className="bg-indigo-100 min-h-screen p-2 pt-12 md:p-12">
             <section className="container mx-auto">
                 <h1 className="text-5xl flex justify-center cursive">
                     My Projects
@@ -33,7 +33,7 @@ export default function Project() {
                 <section className="grid md:grid-cols-2 gap-8">
                     {projectData &&
                         projectData.map((project, index) => (
-                            <article className="relative rounded-lg shadow-xl bg-white px-12 lg:px-16 p-8 lg:py-16">
+                            <article className="relative rounded-lg shadow-xl bg-white px-4 lg:px-16 p-4 lg:py-16">
                                 <h3 className="text-gray-900 text-3xl font-bold mb-2 hover:text-yellow-500">
                                     <a
                                         href={project.link}
@@ -45,7 +45,7 @@ export default function Project() {
                                     </a>
                                 </h3>
                                 <div className="text-gray-500 text-xs md:space-x-4">
-                                    <span className="inline-block">
+                                    <span className="inline-block px-1 md:px-0">
                                         <strong className="font-bold">
                                             Finished on
                                         </strong>
@@ -54,13 +54,13 @@ export default function Project() {
                                             project.date
                                         ).toLocaleDateString()}
                                     </span>
-                                    <span className="inline-block">
+                                    <span className="inline-block px-1 md:px-0">
                                         <strong className="font-bold">
                                             Organization
                                         </strong>
                                         : {project.place}
                                     </span>
-                                    <span className="inline-block">
+                                    <span className="inline-block px-1 md:px-0">
                                         <strong className="font-bold">
                                             Type
                                         </strong>

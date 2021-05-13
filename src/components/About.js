@@ -51,7 +51,7 @@ export default function About() {
                 className="absolute object-cover w-full h-full"
             />
             <div className="p-10 lg:pt-28 container mx-auto relative">
-                <section className="bg-gray-900 rounded-lg shadow-2xl lg:flex p-20 bg-opacity-75">
+                <section className="bg-gray-900 rounded-lg shadow-2xl lg:flex p-4 lg:p-20 bg-opacity-75">
                     <img
                         src={urlFor(author.authorImage).url()}
                         className="rounded w-32 h-32 lg:w-64 lg:h-64 mr-8"
