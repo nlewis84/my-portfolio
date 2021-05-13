@@ -27,11 +27,11 @@ export default function About() {
 
     if (!author)
         return (
-            <main className="relative">
+            <main className="flex-grow">
                 <img
                     src={image}
                     alt="Moraine Park in Estes Park, Colorado"
-                    className="absolute object-cover w-full h-full"
+                    className="absolute object-cover max-w-full h-full"
                 />
                 <div className="p-10 lg:pt-28 container mx-auto relative">
                     <section className="bg-gray-900 rounded-lg shadow-2xl lg:flex p-20 bg-opacity-75">
@@ -44,7 +44,7 @@ export default function About() {
         );
 
     return (
-        <main className="relative">
+        <main className="relative flex-grow">
             <img
                 src={image}
                 alt="Moraine Park in Estes Park, Colorado"
