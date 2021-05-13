@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../Optimized-2014-Bierstadt-Lake.jpg";
+import image from "../2014-Bierstadt-Lake.jpg";
 
 export default function Home() {
     return (
