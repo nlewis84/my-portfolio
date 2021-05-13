@@ -3,7 +3,7 @@ import image from "../2014-Bierstadt-Lake.jpg";
 
 export default function Home() {
     return (
-        <main>
+        <main className="relative">
             <img
                 src={image}
                 alt="Bierstadt Lake in Estes Park, Colorado with Rocky Mountains in the background"
