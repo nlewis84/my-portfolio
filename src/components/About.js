@@ -58,7 +58,7 @@ export default function About() {
                         alt={author.name}
                     />
                     <div className="text-lg flex flex-col justify-center">
-                        <h1 className="cursive text-6xl text-white mb-4">
+                        <h1 className="cursive text-6xl text-white mt-4 md:mt-0 mb-4">
                             Hey there! I'm{" "}
                             <span className="text-yellow-400">
                                 {author.name}
