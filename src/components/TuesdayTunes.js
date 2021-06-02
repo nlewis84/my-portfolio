@@ -4,6 +4,7 @@ export default function TuesdayTunes() {
   return (
     <div>
       <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
         <div class="field">
           <label class="label">
             Your Name:
