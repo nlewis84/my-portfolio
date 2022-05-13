@@ -3,6 +3,21 @@ import sanityClient from "../client.js";
 import image from "../2017-Estes-Park.jpg";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
+import useProgressiveImg from "../utils/progressiveImg";
+import smallImage from "../2017-Estes-Park-small.jpeg";
+import largeImage from "../2017-Estes-Park.jpg";
+
+const BlurredUpImage = () => {
+  const [src, { blur }] = useProgressiveImg(smallImage, largeImage);
+  console.log(src, blur)
+  return (
+    <img
+      src={src}
+      alt="Moraine Park in Estes Park, Colorado"
+      className={blur ? "blur-lg transition-none absolute object-cover w-full h-full" : "blur-none filter ease-out duration-[2000ms] absolute object-cover w-full h-full" }
+    />
+  );
+};
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -28,11 +43,7 @@ export default function About() {
     if (!author)
         return (
             <main className="relative flex-grow">
-                <img
-                    src={image}
-                    alt="Moraine Park in Estes Park, Colorado"
-                    className="absolute object-cover max-w-full h-full"
-                />
+                <BlurredUpImage />
                 <div className="p-10 lg:pt-28 container mx-auto relative">
                     <section className="bg-gray-900 rounded-lg shadow-2xl lg:flex p-20 bg-opacity-75">
                         <h1 className="cursive text-6xl text-white mb-4">
@@ -45,11 +56,7 @@ export default function About() {
 
     return (
         <main className="relative flex-grow">
-            <img
-                src={image}
-                alt="Moraine Park in Estes Park, Colorado"
-                className="absolute object-cover w-full h-full"
-            />
+            <BlurredUpImage />
             <div className="p-10 lg:pt-28 container mx-auto relative">
                 <section className="bg-gray-900 rounded-lg shadow-2xl lg:flex p-4 lg:p-20 bg-opacity-75">
                     <img
