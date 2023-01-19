@@ -30,7 +30,11 @@ export default function Footer() {
             fgColor="#F59E0B"
             style={{ height: 35, width: 35 }}
           />
-          <a target="_blank" rel="noreferrer" href="https://account.venmo.com/u/Nathan-Lewis-35">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://account.venmo.com/u/Nathan-Lewis-35"
+          >
             <div className="rounded-full h-9 w-9 flex items-center justify-center bg-gray-700">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
