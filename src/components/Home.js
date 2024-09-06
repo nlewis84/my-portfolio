@@ -5,7 +5,6 @@ import largeImage from "../2014-Bierstadt-Lake.jpg";
 
 const BlurredUpImage = () => {
   const [src, { blur }] = useProgressiveImg(smallImage, largeImage);
-  console.log(src, blur);
   return (
     <img
       src={src}
@@ -21,10 +20,16 @@ const BlurredUpImage = () => {
 
 export default function Home() {
   return (
-    <main className="relative flex-grow">
+    <main className="relative flex flex-col flex-grow">
+      {/* Background Image */}
       <BlurredUpImage />
-      <section className="relative flex justify-center pt-12 lg:pt-64 px-8">
-        <h1 className="text-6xl text-white font-bold cursive leading-none lg:leading-snug home-name">
+
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+
+      {/* Centered Content */}
+      <section className="relative flex flex-grow items-center justify-center px-8">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl text-white font-bold cursive leading-none lg:leading-snug home-name">
           Hey, I'm Nathan!
         </h1>
       </section>
