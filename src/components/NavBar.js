@@ -10,28 +10,28 @@ export default function Navbar() {
             to="/"
             exact
             activeClassName="text-yellow-400"
-            className="inline-flex items-center py-6 px-3 mr-4 text-white hover:text-yellow-400 text-4xl font-bold cursive tracking-widest"
+            className="inline-flex items-center py-6 px-3 mr-4 text-indigo-50 hover:text-yellow-400 text-4xl font-bold cursive tracking-widest"
           >
             Nathan
           </NavLink>
           <NavLink
             to="/post"
             activeClassName="text-yellow-400 bg-gray-700"
-            className="inline-flex items-center py-3 px-3 my-6 rounded text-white hover:text-yellow-400"
+            className="inline-flex items-center py-3 px-3 my-6 rounded text-indigo-50 hover:text-yellow-400"
           >
             Blog
           </NavLink>
           <NavLink
             to="/project"
             activeClassName="text-yellow-400 bg-gray-700"
-            className="inline-flex items-center py-3 px-3 my-6 rounded text-white hover:text-yellow-400"
+            className="inline-flex items-center py-3 px-3 my-6 rounded text-indigo-50 hover:text-yellow-400"
           >
             Projects
           </NavLink>
           <NavLink
             to="/about"
             activeClassName="text-yellow-400 bg-gray-700"
-            className="inline-flex items-center py-3 px-3 my-6 rounded text-white hover:text-yellow-400"
+            className="inline-flex items-center py-3 px-3 my-6 rounded text-indigo-50 hover:text-yellow-400"
           >
             About
           </NavLink>

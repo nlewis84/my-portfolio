@@ -48,14 +48,14 @@ export default function SinglePost() {
 
   if (!singlePost)
     return (
-      <main className="bg-indigo-100 min-h-screen p-12">
+      <main className="bg-gray-400 min-h-screen p-12">
         <article className="container shadow-lg mx-auto bg-gray-100 rounded-lg" />
       </main>
     );
 
   return (
-    <main className="bg-indigo-100 min-h-screen pt-24 pb-24 md:px-12 md:pb-48">
-      <article className="container shadow-lg mx-auto bg-gray-100 rounded-lg">
+    <main className="bg-gray-400 min-h-screen pt-24 pb-24 md:px-12 md:pb-48">
+      <article className="container shadow-lg mx-auto bg-indigo-50 rounded-lg">
         <header className="relative">
           {/* Overlay on top of the header image */}
           <div className="absolute h-full w-full flex items-center justify-center p-8">

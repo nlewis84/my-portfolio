@@ -64,7 +64,7 @@ export default function About() {
             />
           ) : null}
           {/* Title and Name */}
-          <h1 className="cursive text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-4">
+          <h1 className="cursive text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-indigo-50 mb-4">
             {author ? (
               <>
                 Hey there! I'm{" "}
@@ -76,7 +76,7 @@ export default function About() {
           </h1>
           {/* Bio Content */}
 
-          <div className="prose text-lg sm:text-lg md:text-xl lg:text-2xl text-white pt-4 leading">
+          <div className="prose text-lg sm:text-lg md:text-xl lg:text-2xl text-indigo-50 pt-4 leading">
             {author ? (
               <BlockContent
                 blocks={author.bio}

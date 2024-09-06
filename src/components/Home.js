@@ -29,7 +29,7 @@ export default function Home() {
 
       {/* Centered Content */}
       <section className="relative flex flex-grow items-center justify-center px-8">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl text-white font-bold cursive leading-none lg:leading-snug home-name">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl text-indigo-50 font-bold cursive leading-none lg:leading-snug home-name">
           Hey, I'm Nathan!
         </h1>
       </section>
