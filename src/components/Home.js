@@ -25,7 +25,7 @@ export default function Home() {
       <BlurredUpImage />
 
       {/* Background Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-10"></div>
 
       {/* Centered Content */}
       <section className="relative flex flex-grow items-center justify-center px-8">

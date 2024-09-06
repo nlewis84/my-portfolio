@@ -3,16 +3,15 @@ import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 import useProgressiveImg from "../utils/progressiveImg";
-import smallImage from "../2017-Estes-Park-small.jpeg";
-import largeImage from "../2017-Estes-Park.jpg";
+import smallImage from "../2014-Bierstadt-Lake-small.jpeg";
+import largeImage from "../2014-Bierstadt-Lake.jpg";
 
 const BlurredUpImage = () => {
   const [src, { blur }] = useProgressiveImg(smallImage, largeImage);
-  console.log(src, blur);
   return (
     <img
       src={src}
-      alt="Moraine Park in Estes Park, Colorado"
+      alt="Bierstadt Lake in Estes Park, Colorado with Rocky Mountains in the background"
       className={
         blur
           ? "blur-lg transition-none absolute object-cover w-full h-full"
@@ -43,40 +42,47 @@ export default function About() {
       .catch(console.error);
   }, []);
 
-  if (!author)
-    return (
-      <main className="relative flex-grow">
-        <BlurredUpImage />
-        <div className="p-10 lg:pt-28 container mx-auto relative">
-          <section className="bg-gray-900 rounded-lg shadow-2xl lg:flex p-20 bg-opacity-75">
-            <h1 className="cursive text-6xl text-white mb-4">Loading...</h1>
-          </section>
-        </div>
-      </main>
-    );
-
   return (
-    <main className="relative flex-grow">
+    <main className="relative flex-grow h-screen">
       <BlurredUpImage />
-      <div className="p-10 lg:pt-28 container mx-auto relative">
-        <section className="bg-gray-900 rounded-lg shadow-2xl lg:flex p-4 lg:p-20 bg-opacity-75">
-          <img
-            src={urlFor(author.authorImage).url()}
-            className="rounded w-32 h-32 lg:w-64 lg:h-64 mr-8"
-            alt={author.name}
-          />
-          <div className="text-lg flex flex-col justify-center">
-            <h1 className="cursive text-6xl text-white mt-4 md:mt-0 mb-4">
-              Hey there! I'm{" "}
-              <span className="text-yellow-400">{author.name}</span>
-            </h1>
-            <div className="prose lg:prose-xl text-white">
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-10"></div>
+
+      {/* Centered Content */}
+      <div className="relative flex-grow flex flex-col justify-center items-center text-center py-4 lg:py-0 lg:px-8 mt-20 sm:mt-20">
+        <section className="bg-gray-900 bg-opacity-75 rounded-b-lg p-4 md:p-6 lg:p-10 shadow-2xl w-full max-w-3xl h-screen sm:h-full">
+          {/* Image and Loading State */}
+          {author && author.authorImage ? (
+            <img
+              src={author ? urlFor(author.authorImage).url() : ""}
+              className={`rounded-full ${
+                author
+                  ? "w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40"
+                  : "w-24 h-24"
+              } mx-auto mb-8`}
+              alt={author ? author.name : "Loading..."}
+            />
+          ) : null}
+          {/* Title and Name */}
+          <h1 className="cursive text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-4">
+            {author ? (
+              <>
+                Hey there! I'm{" "}
+                <span className="text-yellow-400">{author.name}</span>
+              </>
+            ) : (
+              "Loading..."
+            )}
+          </h1>
+          {/* Bio Content or Placeholder */}
+          <div className="prose prose-sm sm:prose md:prose-lg lg:prose-xl text-white mx-auto max-w-full">
+            {author ? (
               <BlockContent
                 blocks={author.bio}
                 projectId="46knf8eh"
                 dataset="production"
               />
-            </div>
+            ) : null}
           </div>
         </section>
       </div>
