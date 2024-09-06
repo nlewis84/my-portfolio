@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <header className="bg-gray-900">
+    <header className="bg-gray-900 fixed top-0 w-full z-10">
       <div className="container pl-4 flex justify-between">
         <nav className="inline-flex text-left">
           <NavLink

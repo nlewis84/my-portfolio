@@ -3,7 +3,7 @@ import { SocialIcon } from "react-social-icons";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900">
+    <footer className="bg-gray-900 fixed bottom-0 w-full z-10">
       <div className="container mx-auto flex justify-center">
         <div className="inline-flex py-3 px-3 my-6">
           <SocialIcon
