@@ -15,7 +15,7 @@ const BlurredUpImage = () => {
       className={
         blur
           ? "blur-lg transition-none absolute object-cover w-full h-full"
-          : "blur-none filter ease-out duration-[2000ms] absolute object-cover w-full h-full"
+          : "blur-none filter ease-out duration-1000 absolute object-cover w-full h-full"
       }
     />
   );
@@ -46,7 +46,7 @@ export default function About() {
     <main className="relative flex flex-col min-h-screen">
       <BlurredUpImage />
       {/* Background Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-10"></div>
 
       {/* Centered Content */}
       <div className="relative flex flex-col justify-start items-center flex-grow text-left py-4 lg:px-8 mt-20">
@@ -76,7 +76,7 @@ export default function About() {
           </h1>
           {/* Bio Content */}
 
-          <div className="prose text-lg sm:text-lg md:text-xl lg:text-2xl text-indigo-50 pt-4 leading">
+          <div className="prose text-lg lg:text-xl text-indigo-50 pt-4 leading">
             {author ? (
               <BlockContent
                 blocks={author.bio}

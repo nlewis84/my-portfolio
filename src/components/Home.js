@@ -12,7 +12,7 @@ const BlurredUpImage = () => {
       className={
         blur
           ? "blur-lg transition-none absolute object-cover w-full h-full"
-          : "blur-none filter ease-out duration-[2000ms] absolute object-cover w-full h-full"
+          : "blur-none filter ease-out duration-1000 absolute object-cover w-full h-full"
       }
     />
   );
