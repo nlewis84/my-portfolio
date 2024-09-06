@@ -17,6 +17,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-social-icons": "^5.3.0",
+    "sitemap": "^8.0.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -24,7 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:studio": "cd studio && yarn start"
+    "start:studio": "cd studio && yarn start",
+    "generate:sitemap": "node scripts/generate-sitemap.js"
   },
   "eslintConfig": {
     "extends": [
