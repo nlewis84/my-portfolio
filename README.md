@@ -2,11 +2,9 @@
 
 Welcome to my Portfolio Website! This is where I showcase my journey as a developer, the projects I've been working on, and my blog posts about various topics in the tech industry.
 
-## 🌍 Hosted on Netlify
+🌍 Hosted on Netlify
 
-## 📝 Content managed with Sanity.io
-
----
+📝 Content managed with Sanity.io
 
 ## 🛠 Tech Stack
 
@@ -15,8 +13,6 @@ Welcome to my Portfolio Website! This is where I showcase my journey as a develo
 - **Phosphor Icons**: For beautiful icons
 - **React Router**: For handling page routing
 - **Date-fns**: For working with dates
-
----
 
 ## 🚀 How to Run Locally
 
@@ -38,13 +34,9 @@ yarn start:studio
 
 This command will start Sanity Studio, which allows you to manage the content for the website locally. You can update the website content directly through Sanity and see the changes in both development and production environments.
 
----
-
 ## 🌱 Content Management
 
 With **Sanity Studio**, I can update blog posts, projects, and general content dynamically in both development and production. No need to redeploy the site for content changes—it's all handled through the CMS!
-
----
 
 ## 📂 Scripts
 
