@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import sanityClient from '../client.js';
-import imageUrlBuilder from '@sanity/image-url';
-import BlockContent from '@sanity/block-content-to-react';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import sanityClient from "../client.js";
+import imageUrlBuilder from "@sanity/image-url";
+import BlockContent from "@sanity/block-content-to-react";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -78,7 +78,7 @@ export default function SinglePost() {
             src={singlePost.mainImage.asset.url}
             alt={singlePost.title}
             className="w-full object-cover rounded-t"
-            style={{ height: '400px' }}
+            style={{ height: "400px" }}
           />
         </header>
         <div className="px-4 lg:px-48 p-4 lg:py-12 lg:py-20 prose lg:prose-xl max-w-full">

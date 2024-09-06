@@ -1,7 +1,7 @@
-import React from 'react';
-import useProgressiveImg from '../utils/progressiveImg';
-import smallImage from '../2014-Bierstadt-Lake-small.jpeg';
-import largeImage from '../2014-Bierstadt-Lake.jpg';
+import React from "react";
+import useProgressiveImg from "../utils/progressiveImg";
+import smallImage from "../2014-Bierstadt-Lake-small.jpeg";
+import largeImage from "../2014-Bierstadt-Lake.jpg";
 
 const BlurredUpImage = () => {
   const [src, { blur }] = useProgressiveImg(smallImage, largeImage);
@@ -12,8 +12,8 @@ const BlurredUpImage = () => {
       alt="Bierstadt Lake in Estes Park, Colorado with Rocky Mountains in the background"
       className={
         blur
-          ? 'blur-lg transition-none absolute object-cover w-full h-full'
-          : 'blur-none filter ease-out duration-[2000ms] absolute object-cover w-full h-full'
+          ? "blur-lg transition-none absolute object-cover w-full h-full"
+          : "blur-none filter ease-out duration-[2000ms] absolute object-cover w-full h-full"
       }
     />
   );

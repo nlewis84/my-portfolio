@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import sanityClient from '../client.js';
+import React, { useEffect, useState } from "react";
+import sanityClient from "../client.js";
 
 export default function Project() {
   const [projectData, setProjectData] = useState(null);
@@ -44,15 +44,15 @@ export default function Project() {
                 </h3>
                 <div className="text-gray-500 text-xs md:space-x-4">
                   <span className="inline-block px-1 md:px-0">
-                    <strong className="font-bold">Finished on</strong>:{' '}
+                    <strong className="font-bold">Finished on</strong>:{" "}
                     {new Date(project.date).toLocaleDateString()}
                   </span>
                   <span className="inline-block px-1 md:px-0">
-                    <strong className="font-bold">Organization</strong>:{' '}
+                    <strong className="font-bold">Organization</strong>:{" "}
                     {project.place}
                   </span>
                   <span className="inline-block px-1 md:px-0">
-                    <strong className="font-bold">Type</strong>:{' '}
+                    <strong className="font-bold">Type</strong>:{" "}
                     {project.projectType}
                   </span>
                   <p className="my-6 text-lg text-gray-900 leading-relaxed">
@@ -64,7 +64,7 @@ export default function Project() {
                     target="_blank"
                     className="text-yellow-600 font-bold hover:underline hover:text-yellow-800 text-xl"
                   >
-                    View The Project{' '}
+                    View The Project{" "}
                     <span role="img" aria-label="right pointer">
                       👉
                     </span>

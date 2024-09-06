@@ -8,7 +8,7 @@ const useProgressiveImg = (lowQualitySrc, highQualitySrc) => {
 
     const img = new Image();
     img.src = highQualitySrc;
-    
+
     img.onload = () => {
       setSrc(highQualitySrc);
     };

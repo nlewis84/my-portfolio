@@ -1,5 +1,5 @@
-import React from 'react';
-import { SocialIcon } from 'react-social-icons';
+import React from "react";
+import { SocialIcon } from "react-social-icons";
 
 export default function Footer() {
   return (
@@ -55,9 +55,9 @@ export default function Footer() {
                   y2="56"
                   fill="none"
                   stroke="#F59E0B"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="16"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
                 ></line>
                 <line
                   x1="120"
@@ -66,9 +66,9 @@ export default function Footer() {
                   y2="56"
                   fill="none"
                   stroke="#F59E0B"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="16"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
                 ></line>
                 <line
                   x1="152"
@@ -77,9 +77,9 @@ export default function Footer() {
                   y2="56"
                   fill="none"
                   stroke="#F59E0B"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="16"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
                 ></line>
                 <line
                   x1="32"
@@ -88,25 +88,25 @@ export default function Footer() {
                   y2="216"
                   fill="none"
                   stroke="#F59E0B"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="16"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
                 ></line>
                 <path
                   d="M83.3,216A88,88,0,0,1,32,136V88H208v48a88,88,0,0,1-51.3,80"
                   fill="none"
                   stroke="#F59E0B"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="16"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
                 ></path>
                 <path
                   d="M208,88h0a32,32,0,0,1,32,32v8a32,32,0,0,1-32,32h-3.4"
                   fill="none"
                   stroke="#F59E0B"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="16"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
                 ></path>
               </svg>
             </div>

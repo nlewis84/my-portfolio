@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import sanityClient from '../client.js';
-import imageUrlBuilder from '@sanity/image-url';
-import BlockContent from '@sanity/block-content-to-react';
-import useProgressiveImg from '../utils/progressiveImg';
-import smallImage from '../2017-Estes-Park-small.jpeg';
-import largeImage from '../2017-Estes-Park.jpg';
+import React, { useEffect, useState } from "react";
+import sanityClient from "../client.js";
+import imageUrlBuilder from "@sanity/image-url";
+import BlockContent from "@sanity/block-content-to-react";
+import useProgressiveImg from "../utils/progressiveImg";
+import smallImage from "../2017-Estes-Park-small.jpeg";
+import largeImage from "../2017-Estes-Park.jpg";
 
 const BlurredUpImage = () => {
   const [src, { blur }] = useProgressiveImg(smallImage, largeImage);
@@ -15,8 +15,8 @@ const BlurredUpImage = () => {
       alt="Moraine Park in Estes Park, Colorado"
       className={
         blur
-          ? 'blur-lg transition-none absolute object-cover w-full h-full'
-          : 'blur-none filter ease-out duration-[2000ms] absolute object-cover w-full h-full'
+          ? "blur-lg transition-none absolute object-cover w-full h-full"
+          : "blur-none filter ease-out duration-[2000ms] absolute object-cover w-full h-full"
       }
     />
   );
@@ -67,7 +67,7 @@ export default function About() {
           />
           <div className="text-lg flex flex-col justify-center">
             <h1 className="cursive text-6xl text-white mt-4 md:mt-0 mb-4">
-              Hey there! I'm{' '}
+              Hey there! I'm{" "}
               <span className="text-yellow-400">{author.name}</span>
             </h1>
             <div className="prose lg:prose-xl text-white">
