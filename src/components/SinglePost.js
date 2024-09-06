@@ -58,9 +58,9 @@ export default function SinglePost() {
       <article className="container shadow-lg mx-auto bg-indigo-50 rounded-lg">
         <header className="relative">
           {/* Overlay on top of the header image */}
-          <div className="absolute h-full w-full flex items-center justify-center p-8">
+          <div className="absolute h-full w-full flex flex-col items-center justify-center p-8">
             <div className="bg-yellow-400 bg-opacity-80 rounded p-10 lg:p-16">
-              <h1 className="cursive text-4xl sm:text-5xl lg:text-7xl mb-4">
+              <h1 className="cursive text-center text-4xl sm:text-5xl lg:text-7xl mb-4">
                 {singlePost.title}
               </h1>
               <div className="flex justify-center text-gray-900 items-center">
