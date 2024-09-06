@@ -28,7 +28,7 @@ export default function Posts() {
   return (
     <div className="flex flex-col h-screen">
       {/* Scrollable Content */}
-      <main className="flex-grow overflow-y-auto p-12 bg-indigo-100 mt-20 mb-24">
+      <main className="flex-grow overflow-y-auto py-12 px-2 sm:px-12 bg-indigo-100 mt-20 mb-24">
         <section className="container mx-auto">
           <h1 className="text-5xl flex justify-center cursive">My Blog</h1>
           <h2 className="text-lg text-gray-700 flex justify-center mb-6">
