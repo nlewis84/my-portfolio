@@ -39,7 +39,7 @@ export default function Project() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative rounded-lg shadow leading-snug bg-white border-l-8 border-yellow-400 transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer p-6 flex flex-col justify-between group"
+                  className="relative rounded-lg shadow leading-snug bg-white border-l-8 border-yellow-400 transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer p-6 flex flex-col group"
                 >
                   <div className="flex justify-between items-center">
                     {/* Title and Arrow in the same row */}
