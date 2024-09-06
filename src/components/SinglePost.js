@@ -60,16 +60,16 @@ export default function SinglePost() {
           {/* Overlay on top of the header image */}
           <div className="absolute h-full w-full flex items-center justify-center p-8">
             <div className="bg-yellow-400 bg-opacity-80 rounded p-10 lg:p-16">
-              <h1 className="cursive text-3xl sm:text-4xl lg:text-6xl mb-4">
+              <h1 className="cursive text-4xl sm:text-5xl lg:text-7xl mb-4">
                 {singlePost.title}
               </h1>
-              <div className="flex justify-center text-gray-900">
+              <div className="flex justify-center text-gray-900 items-center">
                 <img
                   src={urlFor(singlePost.authorImage).url()}
                   alt={singlePost.name}
-                  className="w-12 h-12 rounded-full"
+                  className="w-10 h-10 rounded-full"
                 />
-                <p className="cursive flex items-center pl-4 text-2xl lg:text-3xl">
+                <p className="cursive flex items-center pl-4 text-lg sm:text-xl text-gray-800 lg:text-3xl">
                   {singlePost.name}
                 </p>
               </div>
@@ -84,7 +84,7 @@ export default function SinglePost() {
 
         <div className="px-4 md:px-12 lg:px-48 py-5 lg:py-12 prose lg:prose-xl max-w-full">
           {/* Published Date */}
-          <aside className="text-gray-500 italic">
+          <aside className="text-gray-500 italic text-sm">
             Published on {new Date(singlePost.publishedAt).toLocaleDateString()}
           </aside>
 
