@@ -2,6 +2,6 @@
 
 This is my current portfolio website, hosted on Netlify, utilizing Sanity.io.
 
-`yarn start` in root
+`yarn start` to start the application
 
-`yarn start` in /studio
+`start:studio` to start Sanity Studio
