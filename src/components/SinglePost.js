@@ -78,12 +78,11 @@ export default function SinglePost() {
           <img
             src={singlePost.mainImage.asset.url}
             alt={singlePost.title}
-            className="w-full object-cover"
-            style={{ height: "400px" }}
+            className="w-full h-64 sm:h-72 md:h-96 lg:h-[500px] object-cover"
           />
         </header>
 
-        <div className="px-4 md:px-12 lg:px-48 py-4 lg:py-12 prose lg:prose-xl max-w-full">
+        <div className="px-4 md:px-12 lg:px-48 py-5 lg:py-12 prose lg:prose-xl max-w-full">
           {/* Published Date */}
           <aside className="text-gray-500 italic">
             Published on {new Date(singlePost.publishedAt).toLocaleDateString()}
