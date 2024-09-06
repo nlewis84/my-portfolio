@@ -54,21 +54,22 @@ export default function SinglePost() {
     );
 
   return (
-    <main className="bg-indigo-100 min-h-screen p-2 md:p-12">
+    <main className="bg-indigo-100 min-h-screen pt-24 pb-24 md:px-12 md:pb-48">
       <article className="container shadow-lg mx-auto bg-gray-100 rounded-lg">
         <header className="relative">
+          {/* Overlay on top of the header image */}
           <div className="absolute h-full w-full flex items-center justify-center p-8">
-            <div className="bg-yellow-400 bg-opacity-70 rounded p-12">
-              <h1 className="cursive text-3xl lg:text-6xl mb-4">
+            <div className="bg-yellow-400 bg-opacity-80 rounded p-10 lg:p-16">
+              <h1 className="cursive text-3xl sm:text-4xl lg:text-6xl mb-4">
                 {singlePost.title}
               </h1>
               <div className="flex justify-center text-gray-900">
                 <img
                   src={urlFor(singlePost.authorImage).url()}
                   alt={singlePost.name}
-                  className="w-10 h-10 rounded-full"
+                  className="w-12 h-12 rounded-full"
                 />
-                <p className="cursive flex items-center pl-2 text-2xl">
+                <p className="cursive flex items-center pl-4 text-2xl lg:text-3xl">
                   {singlePost.name}
                 </p>
               </div>
@@ -77,14 +78,18 @@ export default function SinglePost() {
           <img
             src={singlePost.mainImage.asset.url}
             alt={singlePost.title}
-            className="w-full object-cover rounded-t"
+            className="w-full object-cover"
             style={{ height: "400px" }}
           />
         </header>
-        <div className="px-4 lg:px-48 p-4 lg:py-12 lg:py-20 prose lg:prose-xl max-w-full">
-          <aside className="text-gray-400">
+
+        <div className="px-4 md:px-12 lg:px-48 py-4 lg:py-12 prose lg:prose-xl max-w-full">
+          {/* Published Date */}
+          <aside className="text-gray-500 italic">
             Published on {new Date(singlePost.publishedAt).toLocaleDateString()}
           </aside>
+
+          {/* Main Content Block */}
           <BlockContent
             blocks={singlePost.body}
             projectId="46knf8eh"
