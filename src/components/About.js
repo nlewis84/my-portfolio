@@ -46,10 +46,10 @@ export default function About() {
     <main className="relative flex-grow h-screen">
       <BlurredUpImage />
       {/* Background Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-10"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-20"></div>
 
       {/* Centered Content */}
-      <div className="relative flex-grow flex flex-col justify-center items-center text-center py-4 lg:py-0 lg:px-8 mt-20 sm:mt-20">
+      <div className="relative flex-grow flex flex-col justify-center items-center text-left py-4 lg:py-0 lg:px-8 mt-20 sm:mt-20">
         <section className="bg-gray-900 bg-opacity-75 rounded-b-lg p-4 md:p-6 lg:p-10 shadow-2xl w-full max-w-3xl h-screen sm:h-full">
           {/* Image and Loading State */}
           {author && author.authorImage ? (
@@ -74,8 +74,9 @@ export default function About() {
               "Loading..."
             )}
           </h1>
-          {/* Bio Content or Placeholder */}
-          <div className="prose prose-sm sm:prose md:prose-lg lg:prose-xl text-white mx-auto max-w-full">
+          {/* Bio Content */}
+
+          <div className="prose text-lg sm:text-lg md:text-xl lg:text-2xl text-white pt-4 leading">
             {author ? (
               <BlockContent
                 blocks={author.bio}
