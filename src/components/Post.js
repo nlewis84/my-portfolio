@@ -39,7 +39,7 @@ export default function Posts() {
               postData.map((post, index) => (
                 <article key={index}>
                   <Link to={"/post/" + post.slug.current}>
-                    <span className="block h-64 relative rounded shadow leading-snug bg-indigo-50 border-l-8 border-yellow-400 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                    <span className="block h-64 relative rounded shadow leading-snug bg-indigo-50 border-l-8 border-yellow-400 sm:transition-all sm:duration-300 sm:transform sm:hover:scale-105 sm:hover:shadow-xl">
                       <img
                         src={post.mainImage.asset.url}
                         alt={post.mainImage.alt}
