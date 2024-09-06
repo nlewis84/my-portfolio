@@ -41,40 +41,40 @@ export default function Project() {
                   rel="noopener noreferrer"
                   className="relative rounded-lg shadow leading-snug bg-white border-l-8 border-yellow-400 transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer p-6 flex flex-col group"
                 >
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center mb-4">
                     {/* Title and Arrow in the same row */}
-                    <h3 className="text-gray-900 text-2xl font-bold mb-2 group-hover:text-yellow-500 transition-all duration-300">
+                    <h3 className="text-gray-900 text-3xl font-extrabold group-hover:text-yellow-500 transition-all duration-300">
                       {project.title}
                     </h3>
                     {/* Phosphor Arrow Icon */}
                     <ArrowRight
-                      size={24}
+                      size={28}
                       className="text-yellow-500 opacity-0 group-hover:opacity-100 group-hover:-translate-x-0 translate-x-4 transition-all duration-300"
                     />
                   </div>
-                  <div>
-                    <div className="text-gray-500 text-sm mb-4">
-                      <span className="block mb-2">
-                        <strong className="font-bold">Finished on:</strong>{" "}
-                        {new Date(project.date).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
-                      </span>
-                      <span className="block mb-2">
-                        <strong className="font-bold">Organization:</strong>{" "}
-                        {project.place}
-                      </span>
-                      <span className="block mb-2">
-                        <strong className="font-bold">Type:</strong>{" "}
-                        {project.projectType}
-                      </span>
-                    </div>
-                    <p className="text-lg text-gray-900 leading-relaxed">
-                      {project.description}
-                    </p>
+                  <div className="text-gray-500 text-sm">
+                    <span className="block mb-1">
+                      <strong className="font-semibold">Finished on:</strong>{" "}
+                      {new Date(project.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </span>
+                    <span className="block mb-1">
+                      <strong className="font-semibold">Organization:</strong>{" "}
+                      {project.place}
+                    </span>
+                    <span className="block mb-1">
+                      <strong className="font-semibold">Type:</strong>{" "}
+                      {project.projectType}
+                    </span>
                   </div>
+                  {/* Divider */}
+                  <div className="border-t border-gray-200 my-4"></div>
+                  <p className="text-lg text-gray-900 leading-relaxed">
+                    {project.description}
+                  </p>
                 </a>
               ))}
           </div>
