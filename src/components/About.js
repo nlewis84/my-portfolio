@@ -43,14 +43,14 @@ export default function About() {
   }, []);
 
   return (
-    <main className="relative flex-grow h-screen">
+    <main className="relative flex flex-col min-h-screen">
       <BlurredUpImage />
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-20"></div>
 
       {/* Centered Content */}
-      <div className="relative flex-grow flex flex-col justify-center items-center text-left py-4 lg:py-0 lg:px-8 mt-20 sm:mt-20">
-        <section className="bg-gray-900 bg-opacity-75 rounded-b-lg p-4 md:p-6 lg:p-10 shadow-2xl w-full max-w-3xl h-screen sm:h-full">
+      <div className="relative flex flex-col justify-start items-center flex-grow text-left py-4 lg:px-8 mt-20">
+        <section className="bg-gray-900 bg-opacity-75 rounded-b-lg p-4 md:p-6 lg:p-10 shadow-2xl w-full max-w-3xl">
           {/* Image and Loading State */}
           {author && author.authorImage ? (
             <img
