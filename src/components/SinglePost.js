@@ -4,6 +4,7 @@ import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 import Prism from "prismjs";
+import { Copy, Check } from "phosphor-react";
 
 import "prismjs/themes/prism.css";
 import "prismjs/components/prism-javascript";
@@ -14,14 +15,46 @@ function urlFor(source) {
   return builder.image(source);
 }
 
+const CodeBlock = ({ code, language }) => {
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  };
+
+  return (
+    <div className="relative">
+      <pre>
+        <button
+          className={`copy-button absolute top-2 right-2 flex items-center space-x-2 bg-gray-600 text-white text-xs px-3 py-1 rounded transition duration-300 ${
+            isCopied ? "bg-green-500" : "bg-gray-600"
+          }`}
+          onClick={handleCopy}
+        >
+          {isCopied ? (
+            <>
+              <Check size={16} />
+              <span>Copied!</span>
+            </>
+          ) : (
+            <>
+              <Copy size={16} />
+              <span>Copy code</span>
+            </>
+          )}
+        </button>
+        <code className={`language-${language}`}>{code}</code>
+      </pre>
+    </div>
+  );
+};
+
 const serializers = {
   types: {
     code: (props) => (
-      <pre>
-        <code className={`language-${props.node.language}`}>
-          {props.node.code}
-        </code>
-      </pre>
+      <CodeBlock code={props.node.code} language={props.node.language} />
     ),
   },
 };
