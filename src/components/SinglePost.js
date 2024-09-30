@@ -3,6 +3,11 @@ import { useParams } from "react-router-dom";
 import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
+import Prism from "prismjs";
+
+import "prismjs/themes/prism.css";
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-css";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -12,8 +17,10 @@ function urlFor(source) {
 const serializers = {
   types: {
     code: (props) => (
-      <pre data-language={props.node.language}>
-        <code>{props.node.code}</code>
+      <pre>
+        <code className={`language-${props.node.language}`}>
+          {props.node.code}
+        </code>
       </pre>
     ),
   },
@@ -45,6 +52,12 @@ export default function SinglePost() {
       .then((data) => setSinglePost(data[0]))
       .catch(console.error);
   }, [slug]);
+
+  useEffect(() => {
+    if (singlePost) {
+      Prism.highlightAll();
+    }
+  }, [singlePost]);
 
   if (!singlePost)
     return (

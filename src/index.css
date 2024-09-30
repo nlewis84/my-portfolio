@@ -16,3 +16,19 @@
 .home-name {
   font-size: 150px;
 }
+
+/* Override the default Prism pre background */
+pre {
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+/* If you want to target only Prism-specific code blocks */
+pre[class*="language-"] {
+  background-color: #eef3f8 !important;
+}
+
