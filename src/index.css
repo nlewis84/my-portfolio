@@ -29,6 +29,9 @@ pre {
 
 /* If you want to target only Prism-specific code blocks */
 pre[class*="language-"] {
-  background-color: #eef3f8 !important;
+  background-color: hsla(0, 0%, 100%, .5) !important;
 }
 
+code {
+  color: rgb(38, 38, 38) !important;
+}
