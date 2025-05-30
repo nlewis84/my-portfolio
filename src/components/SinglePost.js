@@ -114,6 +114,9 @@ export default function SinglePost() {
                   src={urlFor(singlePost.authorImage).url()}
                   alt={singlePost.name}
                   className="w-10 h-10 rounded-full"
+                  loading="eager"
+                  width="40"
+                  height="40"
                 />
                 <p className="cursive flex items-center pl-4 text-lg sm:text-xl text-gray-800 lg:text-3xl">
                   {singlePost.name}
@@ -125,6 +128,10 @@ export default function SinglePost() {
             src={singlePost.mainImage.asset.url}
             alt={singlePost.title}
             className="w-full h-64 sm:h-72 md:h-96 lg:h-[500px] object-cover"
+            loading="eager"
+            fetchPriority="high"
+            width="1920"
+            height="500"
           />
         </header>
 

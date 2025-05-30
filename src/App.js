@@ -1,23 +1,29 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import SinglePost from "./components/SinglePost";
-import Post from "./components/Post";
-import Project from "./components/Project";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import LoadingSpinner from "./components/LoadingSpinner";
+
+// Lazy load route components
+const Home = lazy(() => import("./components/Home"));
+const About = lazy(() => import("./components/About"));
+const SinglePost = lazy(() => import("./components/SinglePost"));
+const Post = lazy(() => import("./components/Post"));
+const Project = lazy(() => import("./components/Project"));
 
 function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <Switch>
-        <Route component={Home} path="/" exact />
-        <Route component={About} path="/about" />
-        <Route component={SinglePost} path="/post/:slug" />
-        <Route component={Post} path="/post" />
-        <Route component={Project} path="/project" />
-      </Switch>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/post/:slug" element={<SinglePost />} />
+          <Route path="/post" element={<Post />} />
+          <Route path="/project" element={<Project />} />
+        </Routes>
+      </Suspense>
       <Footer />
     </BrowserRouter>
   );
