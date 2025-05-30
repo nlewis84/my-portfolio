@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto flex justify-center">
         <div className="inline-flex py-3 px-3 my-6">
           <SocialIcon
-            url="https://www.linkedin.com/in/nlewis84/"
+            url="https://www.linkedin.com/in/nathanlewis-dev/"
             className="mr-4"
             target="_blank"
             bgColor="#374151"

@@ -7,7 +7,7 @@
   "author": "Nathan Lewis <n.lewis.perc@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "sanity start",
+    "start": "NODE_OPTIONS='--openssl-legacy-provider' sanity start",
     "build": "sanity build"
   },
   "keywords": [
