@@ -42,8 +42,11 @@ export default function Posts() {
                     <span className="block h-64 relative rounded shadow leading-snug bg-indigo-50 border-l-8 border-yellow-400 sm:transition-all sm:duration-300 sm:transform sm:hover:scale-105 sm:hover:shadow-xl">
                       <img
                         src={post.mainImage.asset.url}
-                        alt={post.mainImage.alt}
+                        alt={post.mainImage.alt || post.title}
+                        loading="lazy"
                         className="w-full h-full rounded-r object-cover absolute"
+                        width="400"
+                        height="256"
                       />
                       <span className="relative h-full flex justify-end items-end pr-4 pb-4">
                         <h3 className="text-gray-800 text-lg font-bold px-4 py-4 bg-yellow-400 bg-opacity-90 w-full rounded-r-md">

@@ -1,45 +1,60 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { memo } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
-export default function Navbar() {
+const NavLinkItem = memo(({ to, children }) => {
+  const location = useLocation();
+  const isActive = location.pathname === to;
+
   return (
-    <header className="bg-gray-900 fixed top-0 w-full z-10">
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        `inline-flex items-center py-3 px-3 my-6 rounded hover:text-yellow-400 transition-colors duration-200 ${
+          isActive ? "text-yellow-400 bg-gray-700" : ""
+        }`
+      }
+      aria-current={isActive ? "page" : undefined}
+    >
+      {children}
+    </NavLink>
+  );
+});
+
+NavLinkItem.displayName = 'NavLinkItem';
+
+const Navbar = memo(() => {
+  return (
+    <header 
+      className="bg-gray-900 fixed top-0 w-full z-10 shadow-md"
+      role="banner"
+    >
       <div className="container pl-4 flex justify-between">
-        <nav className="inline-flex text-left text-indigo-50">
+        <nav 
+          className="inline-flex text-left text-indigo-50"
+          role="navigation"
+          aria-label="Main navigation"
+        >
           <NavLink
-            exact
             to="/"
-            activeClassName="text-yellow-400"
-            className="inline-flex items-center py-6 px-3 mr-4 hover:text-yellow-400 text-4xl font-bold cursive tracking-widest"
+            className={({ isActive }) =>
+              `inline-flex items-center py-6 px-3 mr-4 hover:text-yellow-400 text-4xl font-bold cursive tracking-widest transition-colors duration-200 ${
+                isActive ? "text-yellow-400" : ""
+              }`
+            }
+            aria-label="Home"
           >
             Nathan
           </NavLink>
 
-          <NavLink
-            to="/post"
-            activeClassName="text-yellow-400 bg-gray-700"
-            className="inline-flex items-center py-3 px-3 my-6 rounded hover:text-yellow-400"
-          >
-            Blog
-          </NavLink>
-
-          <NavLink
-            to="/project"
-            activeClassName="text-yellow-400 bg-gray-700"
-            className="inline-flex items-center py-3 px-3 my-6 rounded hover:text-yellow-400"
-          >
-            Projects
-          </NavLink>
-
-          <NavLink
-            to="/about"
-            activeClassName="text-yellow-400 bg-gray-700"
-            className="inline-flex items-center py-3 px-3 my-6 rounded hover:text-yellow-400"
-          >
-            About
-          </NavLink>
+          <NavLinkItem to="/post">Blog</NavLinkItem>
+          <NavLinkItem to="/project">Projects</NavLinkItem>
+          <NavLinkItem to="/about">About</NavLinkItem>
         </nav>
       </div>
     </header>
   );
-}
+});
+
+Navbar.displayName = 'Navbar';
+
+export default Navbar;

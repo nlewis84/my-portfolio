@@ -7,12 +7,6 @@
   font-weight: 700;
 }
 
-.prose img {
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 5px;
-}
-
 .home-name {
   font-size: 150px;
 }
@@ -27,11 +21,19 @@ pre {
   transition: background-color 0.3s ease;
 }
 
+code {
+  color: rgb(38, 38, 38) !important;
+}
+
+/* Restore prose img override (for Tailwind typography) */
+.prose img {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+/* Restore Prism (pre) override (for Prism code blocks) */
 /* If you want to target only Prism-specific code blocks */
 pre[class*="language-"] {
   background-color: hsla(0, 0%, 100%, .5) !important;
-}
-
-code {
-  color: rgb(38, 38, 38) !important;
 }
