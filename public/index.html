@@ -52,6 +52,51 @@
   
   <!-- Cache Control -->
   <meta http-equiv="Cache-Control" content="public, max-age=31536000" />
+
+  <!-- Fun Console Message -->
+  <script>
+    (function() {
+      const styles = {
+        title: [
+          'color: #1F2937',
+          'background: #FCD34D',
+          'font-size: 16px',
+          'font-family: monospace',
+          'padding: 8px 12px',
+          'border-radius: 4px',
+          'font-weight: bold',
+          'margin: 8px 0'
+        ].join(';'),
+        link: [
+          'color: #2563eb',
+          'font-size: 15px',
+          'font-family: monospace',
+          'font-weight: bold',
+          'text-decoration: underline',
+          'padding: 2px 0'
+        ].join(';'),
+        tech: [
+          'color: #fff',
+          'background: #1e293b',
+          'font-size: 14px',
+          'font-family: monospace',
+          'padding: 6px 10px',
+          'border-radius: 4px',
+          'margin: 4px 0'
+        ].join(';')
+      };
+
+      console.clear();
+      console.log('\n\n');
+      console.log('%c👋 Welcome to my portfolio!', styles.title);
+      console.log('%cFeel free to explore the code and reach out if you have any questions.', styles.tech);
+      console.log('%c🛠️  Built with:', styles.title);
+      console.log('%c• React • Tailwind CSS • Sanity CMS • Node.js', styles.tech);
+      console.log('%c🔗 Connect with me:', styles.title);
+      console.log('%cGitHub: https://github.com/nlewis84', styles.link);
+      console.log('\n\n');
+    })();
+  </script>
 </head>
 
 <body>
@@ -62,16 +107,6 @@
     </div>
   </noscript>
   <div id="root" style="display: flex; flex-direction: column; min-height: 100vh"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
 </body>
 
 </html>

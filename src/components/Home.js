@@ -22,7 +22,7 @@ const BlurredUpImage = memo(() => {
       src={src}
       alt="Bierstadt Lake in Estes Park, Colorado with Rocky Mountains in the background"
       loading="eager"
-      fetchPriority="high"
+      fetchpriority="high"
       onError={() => setError(true)}
       className={
         blur
