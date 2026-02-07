@@ -1,46 +1,132 @@
-# 🥁 Nathan Lewis - Portfolio Website
+# Nathan Lewis — Portfolio Website
 
-Welcome to my Portfolio Website! This is where I showcase my journey as a developer, the projects I've been working on, and my blog posts about various topics in the tech industry.
+A personal portfolio showcasing my journey as a developer, featured projects, and blog posts about tech.
 
-🌍 Hosted on Netlify
+- **Live site:** [nathanlewis.dev](https://nathanlewis.dev)
+- **Hosted on:** Netlify
+- **Content managed with:** Sanity.io
 
-📝 Content managed with Sanity.io
+---
 
-## 🛠 Tech Stack
+## Tech Stack
 
-- **React**: Frontend framework
-- **Sanity.io**: Headless CMS for managing content
-- **Phosphor Icons**: For beautiful icons
-- **React Router**: For handling page routing
-- **Date-fns**: For working with dates
+| Category | Technology |
+|----------|------------|
+| **Frontend** | React 18, React Router v6 |
+| **Styling** | Tailwind CSS |
+| **CMS** | Sanity.io (headless) |
+| **Icons** | Phosphor Icons |
+| **Media** | `@sanity/image-url`, `@sanity/block-content-to-react` |
+| **Utilities** | Date-fns, Prism.js (code highlighting), react-social-icons |
 
-## 🚀 How to Run Locally
+---
 
-Follow these commands to start the application locally:
+## Prerequisites
 
-### 1. Running the Portfolio Website
+- **Node.js** 18+ (see [`.nvmrc`](.nvmrc); `package.json` engines)
+- **Yarn** package manager
+
+---
+
+## Quick Start
+
+### 1. Install dependencies
+
+```bash
+yarn install
+```
+
+### 2. Run the portfolio
 
 ```bash
 yarn start
 ```
 
-This will start the React application.
+Runs the app at [http://localhost:3000](http://localhost:3000).
 
-### 2. Running Sanity Studio
+### 3. Run Sanity Studio (optional)
+
+To edit content locally:
 
 ```bash
 yarn start:studio
 ```
 
-This command will start Sanity Studio, which allows you to manage the content for the website locally. You can update the website content directly through Sanity and see the changes in both development and production environments.
+Opens Sanity Studio for managing blog posts, projects, and authors.
 
-## 🌱 Content Management
+---
 
-With **Sanity Studio**, I can update blog posts, projects, and general content dynamically in both development and production. No need to redeploy the site for content changes—it's all handled through the CMS!
+## Project Structure
 
-## 📂 Scripts
+```
+my-portfolio/
+├── public/               # Static assets, favicon, manifest
+│   ├── index.html
+│   ├── _redirects        # Netlify SPA routing
+│   ├── robots.txt
+│   └── sitemap.xml
+├── scripts/
+│   └── generate-sitemap.js
+├── src/
+│   ├── components/      # React components
+│   │   ├── Home.js
+│   │   ├── About.js
+│   │   ├── NavBar.js
+│   │   ├── Footer.js
+│   │   ├── Post.js, SinglePost.js
+│   │   └── Project.js
+│   ├── utils/           # Utilities (e.g. progressiveImg)
+│   ├── client.js        # Sanity client config
+│   └── serializers.js   # Block content serializers
+├── studio/              # Sanity Studio app
+│   ├── schemas/         # Content schemas (post, project, author)
+│   └── sanity.json
+└── tailwind.config.js
+```
 
-- **`yarn start`**: Runs the application in development mode.
-- **`yarn start:studio`**: Starts Sanity Studio locally.
-- **`yarn build`**: Builds the application for production.
-- **`yarn test`**: Launches the test runner in interactive mode.
+---
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `yarn start` | Start React dev server |
+| `yarn start:studio` | Start Sanity Studio for content editing |
+| `yarn build` | Build for production |
+| `yarn test` | Run tests |
+| `yarn generate:sitemap` | Regenerate `public/sitemap.xml` |
+
+---
+
+## Content Management
+
+Sanity Studio powers content for:
+
+- **Posts** — Blog posts with title, slug, author, image, and body (block content)
+- **Projects** — Projects with title, date, place, description, type, link, and tags
+- **Authors** — Author profiles referenced by posts
+
+Changes made in Sanity are reflected in both development and production without redeploying. The frontend fetches content from the Sanity API at runtime.
+
+---
+
+## Deployment
+
+### Netlify
+
+1. Connect the repo to Netlify.
+2. Build command: `yarn build`
+3. Publish directory: `build`
+4. `_redirects` handles SPA routing for client-side routes.
+
+---
+
+## Environment
+
+The Sanity client uses project ID `46knf8eh` and dataset `production`. For local development, no additional env vars are required.
+
+---
+
+## License
+
+Private portfolio project.

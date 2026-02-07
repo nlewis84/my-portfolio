@@ -1,14 +1,13 @@
 const { SitemapStream, streamToPromise } = require("sitemap");
-const { Readable } = require("stream"); // <-- Add this to fix the error
+const { Readable } = require("stream");
 const fs = require("fs");
 
 // Define your links here
 const links = [
   { url: "/", changefreq: "daily", priority: 1.0 },
   { url: "/about", changefreq: "monthly", priority: 0.7 },
-  { url: "/projects", changefreq: "weekly", priority: 0.8 },
-  { url: "/blog", changefreq: "daily", priority: 0.9 },
-  // Add more pages
+  { url: "/project", changefreq: "weekly", priority: 0.8 },
+  { url: "/post", changefreq: "daily", priority: 0.9 },
 ];
 
 const stream = new SitemapStream({ hostname: "https://nathanlewis.dev" });
