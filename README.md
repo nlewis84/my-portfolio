@@ -65,8 +65,10 @@ my-portfolio/
 │   ├── _redirects        # Netlify SPA routing
 │   ├── robots.txt
 │   └── sitemap.xml
+├── blog-planning/       # Exported blog posts (markdown), via `yarn export:blog`
 ├── scripts/
-│   └── generate-sitemap.js
+│   ├── generate-sitemap.js
+│   └── export-blog-posts.js
 ├── src/
 │   ├── components/      # React components
 │   │   ├── Home.js
@@ -95,6 +97,7 @@ my-portfolio/
 | `yarn build` | Build for production |
 | `yarn test` | Run tests |
 | `yarn generate:sitemap` | Regenerate `public/sitemap.xml` |
+| `yarn export:blog` | Export all blog posts from Sanity to markdown files in `blog-planning/` |
 
 ---
 

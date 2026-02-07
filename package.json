@@ -27,7 +27,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:studio": "cd studio && yarn start",
-    "generate:sitemap": "node scripts/generate-sitemap.js"
+    "generate:sitemap": "node scripts/generate-sitemap.js",
+    "export:blog": "node scripts/export-blog-posts.js"
   },
   "eslintConfig": {
     "extends": [
