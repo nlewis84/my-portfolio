@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
@@ -61,9 +61,13 @@ const serializers = {
 
 export default function SinglePost() {
   const [singlePost, setSinglePost] = useState(null);
+  const [prevPost, setPrevPost] = useState(null);
+  const [nextPost, setNextPost] = useState(null);
   const { slug } = useParams();
 
   useEffect(() => {
+    setPrevPost(null);
+    setNextPost(null);
     sanityClient
       .fetch(
         `*[slug.current == "${slug}"]{
@@ -85,6 +89,26 @@ export default function SinglePost() {
       .then((data) => setSinglePost(data[0]))
       .catch(console.error);
   }, [slug]);
+
+  useEffect(() => {
+    if (!singlePost?.publishedAt) return;
+    const publishedAt = singlePost.publishedAt;
+    Promise.all([
+      sanityClient.fetch(
+        `*[_type == "post" && publishedAt < $publishedAt] | order(publishedAt desc)[0]{ title, "slug": slug.current }`,
+        { publishedAt }
+      ),
+      sanityClient.fetch(
+        `*[_type == "post" && publishedAt > $publishedAt] | order(publishedAt asc)[0]{ title, "slug": slug.current }`,
+        { publishedAt }
+      ),
+    ])
+      .then(([prev, next]) => {
+        setPrevPost(prev);
+        setNextPost(next);
+      })
+      .catch(console.error);
+  }, [singlePost?.publishedAt]);
 
   useEffect(() => {
     if (singlePost) {
@@ -149,6 +173,49 @@ export default function SinglePost() {
             serializers={serializers}
           />
         </div>
+
+        {/* Prev/Next Post Navigation */}
+        {(prevPost || nextPost) && (
+          <nav
+            className="px-4 md:px-12 lg:px-48 py-8 lg:py-12 border-t border-gray-200"
+            aria-label="Post navigation"
+          >
+            <div
+              className={`flex flex-col sm:flex-row gap-4 sm:gap-6 ${
+                prevPost && nextPost
+                  ? "justify-between"
+                  : nextPost
+                  ? "justify-end"
+                  : "justify-start"
+              }`}
+            >
+              {prevPost && (
+                <Link
+                  to={"/post/" + prevPost.slug}
+                  className="max-w-md rounded shadow border-l-8 border-yellow-400 bg-indigo-50 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+                >
+                  <span className="text-gray-500 text-sm block mb-1">
+                    Previous
+                  </span>
+                  <span className="cursive text-gray-800 text-xl lg:text-2xl font-bold">
+                    {prevPost.title}
+                  </span>
+                </Link>
+              )}
+              {nextPost && (
+                <Link
+                  to={"/post/" + nextPost.slug}
+                  className="max-w-md rounded shadow border-l-8 border-yellow-400 bg-indigo-50 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg text-right sm:ml-auto"
+                >
+                  <span className="text-gray-500 text-sm block mb-1">Next</span>
+                  <span className="cursive text-gray-800 text-xl lg:text-2xl font-bold">
+                    {nextPost.title}
+                  </span>
+                </Link>
+              )}
+            </div>
+          </nav>
+        )}
       </article>
     </main>
   );
