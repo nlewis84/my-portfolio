@@ -7,7 +7,7 @@ const ProjectCard = memo(({ project }) => (
     href={project.link}
     target="_blank"
     rel="noopener noreferrer"
-    className="relative rounded-lg shadow leading-snug bg-indigo-50 border-l-8 border-yellow-400 sm:transition-all sm:duration-300 sm:transform sm:hover:scale-105 sm:hover:shadow-xl cursor-pointer p-6 flex flex-col group"
+    className="relative rounded-lg shadow leading-snug bg-indigo-50 border-l-8 border-yellow-400 sm:transition-all sm:duration-300 sm:transform sm:hover:scale-105 sm:hover:shadow-xl cursor-pointer p-6 flex flex-col group min-h-[20rem] h-full"
     aria-label={`View ${project.title} project`}
   >
     <div className="flex justify-between items-center mb-4">
@@ -47,7 +47,7 @@ const ProjectCard = memo(({ project }) => (
     </div>
     {/* Divider */}
     <div className="border-t border-gray-200 my-4"></div>
-    <p className="text-lg text-gray-900 leading-relaxed">
+    <p className="text-lg text-gray-900 leading-relaxed flex-1">
       {project.description}
     </p>
   </a>
@@ -131,7 +131,13 @@ const Project = memo(() => {
           {projectData ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projectData.map((project, index) => (
-                <ProjectCard key={index} project={project} />
+                <div
+                  key={index}
+                  className="animate-fade-in-stagger min-h-[20rem]"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <ProjectCard project={project} />
+                </div>
               ))}
             </div>
           ) : (

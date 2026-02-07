@@ -125,10 +125,6 @@ const Footer = memo(() => {
             url="https://github.com/nlewis84"
             label="GitHub Profile"
           />
-          <SocialLink 
-            url="https://twitter.com/nlewis84"
-            label="Twitter Profile"
-          />
           <VenmoLink />
         </div>
       </div>

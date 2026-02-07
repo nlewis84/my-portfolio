@@ -37,8 +37,12 @@ export default function Posts() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {postData &&
               postData.map((post, index) => (
-                <article key={index}>
-                  <Link to={"/post/" + post.slug.current}>
+                <article
+                  key={index}
+                  className="animate-fade-in-stagger min-h-[16rem]"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <Link to={"/post/" + post.slug.current} className="block h-full">
                     <span className="block h-64 relative rounded shadow leading-snug bg-indigo-50 border-l-8 border-yellow-400 sm:transition-all sm:duration-300 sm:transform sm:hover:scale-105 sm:hover:shadow-xl">
                       <img
                         src={post.mainImage.asset.url}
