@@ -145,6 +145,10 @@ export default function SinglePost() {
   }
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [slug]);
+
+  useEffect(() => {
     sanityClient
       .fetch(
         `*[slug.current == "${slug}"]{
@@ -277,7 +281,7 @@ export default function SinglePost() {
               {prevPost && (
                 <Link
                   to={"/post/" + prevPost.slug}
-                  className="max-w-md rounded-sm shadow-sm border-l-8 border-yellow-400 bg-indigo-50 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+                  className="max-w-md rounded-sm shadow-sm border-l-8 border-yellow-400 bg-white p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
                 >
                   <span className="text-gray-500 text-sm block mb-1">
                     Previous
@@ -290,7 +294,7 @@ export default function SinglePost() {
               {nextPost && (
                 <Link
                   to={"/post/" + nextPost.slug}
-                  className="max-w-md rounded-sm shadow-sm border-l-8 border-yellow-400 bg-indigo-50 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg text-right sm:ml-auto"
+                  className="max-w-md rounded-sm shadow-sm border-l-8 border-yellow-400 bg-white p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg text-right sm:ml-auto"
                 >
                   <span className="text-gray-500 text-sm block mb-1">Next</span>
                   <span className="cursive text-gray-800 text-xl lg:text-2xl font-bold">
