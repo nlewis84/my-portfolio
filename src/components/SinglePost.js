@@ -51,11 +51,63 @@ const CodeBlock = ({ code, language }) => {
   );
 };
 
+let inlineCodeKeyCounter = 0;
+
+function processBlocksForInlineCode(blocks) {
+  if (!blocks) return blocks;
+  return blocks.map((block) => {
+    if (block._type !== "block" || !block.children) return block;
+
+    const newChildren = [];
+    block.children.forEach((child) => {
+      if (child._type !== "span" || !child.text) {
+        newChildren.push(child);
+        return;
+      }
+
+      // Strip backticks from spans that already carry a code mark
+      if (child.marks?.includes("code") && child.text.includes("`")) {
+        newChildren.push({
+          ...child,
+          text: child.text.replace(/`/g, ""),
+        });
+        return;
+      }
+
+      if (!child.text.includes("`")) {
+        newChildren.push(child);
+        return;
+      }
+
+      const parts = child.text.split(/`([^`]+)`/);
+      if (parts.length === 1) {
+        newChildren.push(child);
+        return;
+      }
+
+      parts.forEach((part, i) => {
+        if (!part) return;
+        newChildren.push({
+          ...child,
+          _key: `${child._key || "ic"}-${inlineCodeKeyCounter++}`,
+          text: part,
+          marks: i % 2 === 1 ? [...(child.marks || []), "code"] : child.marks,
+        });
+      });
+    });
+
+    return { ...block, children: newChildren };
+  });
+}
+
 const serializers = {
   types: {
     code: (props) => (
       <CodeBlock code={props.node.code} language={props.node.language} />
     ),
+  },
+  marks: {
+    code: ({ children }) => <code className="inline-code">{children}</code>,
   },
 };
 
@@ -167,7 +219,7 @@ export default function SinglePost() {
 
           {/* Main Content Block */}
           <BlockContent
-            blocks={singlePost.body}
+            blocks={processBlocksForInlineCode(singlePost.body)}
             projectId="46knf8eh"
             dataset="production"
             serializers={serializers}

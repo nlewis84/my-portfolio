@@ -65,6 +65,20 @@ code {
   color: rgb(38, 38, 38) !important;
 }
 
+.inline-code,
+.prose :not(pre) > code {
+  background-color: rgba(99, 102, 241, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875em;
+}
+
+.prose code::before,
+.prose code::after {
+  content: none;
+}
+
 /* Restore prose img override (for Tailwind typography) */
 .prose img {
   margin-left: auto;
