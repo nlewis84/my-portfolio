@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import sanityClient from "../client.js";
 import { createImageUrlBuilder } from "@sanity/image-url";
 import { PortableText } from "@portabletext/react";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import Prism from "prismjs";
 import { Copy, Check } from "@phosphor-icons/react";
 
@@ -111,6 +113,24 @@ const portableTextComponents = {
   },
 };
 
+const markdownComponents = {
+  code({ className, children, ...props }) {
+    const match = /language-(\w+)/.exec(className || "");
+    const codeString = String(children).replace(/\n$/, "");
+    if (match) {
+      return <CodeBlock code={codeString} language={match[1]} />;
+    }
+    return (
+      <code className="inline-code" {...props}>
+        {children}
+      </code>
+    );
+  },
+  pre({ children }) {
+    return <>{children}</>;
+  },
+};
+
 export default function SinglePost() {
   const [singlePost, setSinglePost] = useState(null);
   const [prevPost, setPrevPost] = useState(null);
@@ -133,6 +153,7 @@ export default function SinglePost() {
                     url
                 }
             },
+            markdownBody,
             body,
             "name": author->name,
             "authorImage": author->image,
@@ -218,10 +239,19 @@ export default function SinglePost() {
           </aside>
 
           {/* Main Content Block */}
-          <PortableText
-            value={processBlocksForInlineCode(singlePost.body)}
-            components={portableTextComponents}
-          />
+          {singlePost.markdownBody ? (
+            <Markdown
+              remarkPlugins={[remarkGfm]}
+              components={markdownComponents}
+            >
+              {singlePost.markdownBody}
+            </Markdown>
+          ) : (
+            <PortableText
+              value={processBlocksForInlineCode(singlePost.body)}
+              components={portableTextComponents}
+            />
+          )}
         </div>
 
         {/* Prev/Next Post Navigation */}

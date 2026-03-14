@@ -40,9 +40,16 @@ export default {
             },
         },
         {
+            name: "markdownBody",
+            title: "Body (Markdown)",
+            type: "markdown",
+            description: "Paste or write Markdown here. If filled, this takes priority over the rich text body below.",
+        },
+        {
             name: "body",
-            title: "Body",
+            title: "Body (Rich Text)",
             type: "blockContent",
+            description: "Rich text editor. Used when the Markdown field above is empty.",
         },
     ],
 
