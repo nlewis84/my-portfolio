@@ -12,18 +12,19 @@ A personal portfolio showcasing my journey as a developer, featured projects, an
 
 | Category | Technology |
 |----------|------------|
-| **Frontend** | React 18, React Router v6 |
-| **Styling** | Tailwind CSS |
-| **CMS** | Sanity.io (headless) |
+| **Frontend** | React 19, React Router v6 |
+| **Build** | Vite 6 |
+| **Styling** | Tailwind CSS v4 |
+| **CMS** | Sanity Studio v3 (headless) |
 | **Icons** | Phosphor Icons |
-| **Media** | `@sanity/image-url`, `@sanity/block-content-to-react` |
-| **Utilities** | Date-fns, Prism.js (code highlighting), react-social-icons |
+| **Content rendering** | `@portabletext/react` (rich text), `react-markdown` + `remark-gfm` (markdown) |
+| **Utilities** | Prism.js (code highlighting), react-social-icons |
 
 ---
 
 ## Prerequisites
 
-- **Node.js** 18+ (see [`.nvmrc`](.nvmrc); `package.json` engines)
+- **Node.js** 22+ (see [`.nvmrc`](.nvmrc))
 - **Yarn** package manager
 
 ---
@@ -60,30 +61,33 @@ Opens Sanity Studio for managing blog posts, projects, and authors.
 
 ```
 my-portfolio/
-├── public/               # Static assets, favicon, manifest
-│   ├── index.html
-│   ├── _redirects        # Netlify SPA routing
+├── index.html              # App entry point (Vite)
+├── vite.config.js          # Vite configuration
+├── public/                 # Static assets, favicon, manifest
+│   ├── _redirects          # Netlify SPA routing
 │   ├── robots.txt
 │   └── sitemap.xml
-├── blog-planning/       # Exported blog posts (markdown), via `yarn export:blog`
 ├── scripts/
 │   ├── generate-sitemap.js
 │   └── export-blog-posts.js
 ├── src/
-│   ├── components/      # React components
-│   │   ├── Home.js
-│   │   ├── About.js
-│   │   ├── NavBar.js
-│   │   ├── Footer.js
-│   │   ├── Post.js, SinglePost.js
-│   │   └── Project.js
-│   ├── utils/           # Utilities (e.g. progressiveImg)
-│   ├── client.js        # Sanity client config
-│   └── serializers.js   # Block content serializers
-├── studio/              # Sanity Studio app
-│   ├── schemas/         # Content schemas (post, project, author)
-│   └── sanity.json
-└── tailwind.config.js
+│   ├── components/         # React components (.jsx)
+│   │   ├── Home.jsx
+│   │   ├── About.jsx
+│   │   ├── NavBar.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Post.jsx, SinglePost.jsx
+│   │   ├── Project.jsx
+│   │   ├── BlurredUpImage.jsx
+│   │   └── ErrorBoundary.jsx
+│   ├── utils/              # Utilities (e.g. progressiveImg)
+│   ├── client.js           # Sanity client config
+│   ├── index.css            # Tailwind v4 + custom styles
+│   └── index.jsx           # App entry point
+└── studio/                 # Sanity Studio v3
+    ├── sanity.config.js    # Studio configuration
+    ├── sanity.cli.js       # CLI configuration
+    └── schemas/            # Content schemas (post, project, author, blockContent)
 ```
 
 ---
@@ -92,12 +96,13 @@ my-portfolio/
 
 | Command | Description |
 |---------|-------------|
-| `yarn start` | Start React dev server |
-| `yarn start:studio` | Start Sanity Studio for content editing |
+| `yarn start` | Start Vite dev server |
+| `yarn dev` | Alias for `yarn start` |
 | `yarn build` | Build for production |
-| `yarn test` | Run tests |
+| `yarn preview` | Preview production build locally |
+| `yarn start:studio` | Start Sanity Studio for content editing |
 | `yarn generate:sitemap` | Regenerate `public/sitemap.xml` |
-| `yarn export:blog` | Export all blog posts from Sanity to markdown files in `blog-planning/` |
+| `yarn export:blog` | Export all blog posts from Sanity to markdown files |
 
 ---
 
@@ -105,9 +110,9 @@ my-portfolio/
 
 Sanity Studio powers content for:
 
-- **Posts** — Blog posts with title, slug, author, image, and body (block content)
-- **Projects** — Projects with title, date, place, description, type, link, and tags
-- **Authors** — Author profiles referenced by posts
+- **Posts** — Blog posts with title, slug, author, image, and body. Posts support both a Markdown body field and a rich text (Portable Text) body field. If the Markdown field has content, the frontend renders that; otherwise it falls back to the rich text body.
+- **Projects** — Projects with title, date, place, description, type, link, and tags.
+- **Authors** — Author profiles referenced by posts.
 
 Changes made in Sanity are reflected in both development and production without redeploying. The frontend fetches content from the Sanity API at runtime.
 
@@ -126,7 +131,7 @@ Changes made in Sanity are reflected in both development and production without 
 
 ## Environment
 
-The Sanity client uses project ID `46knf8eh` and dataset `production`. For local development, no additional env vars are required.
+The Sanity client uses project ID `46knf8eh` and dataset `production`. No additional env vars are required for local development.
 
 ---
 
