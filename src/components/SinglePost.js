@@ -124,7 +124,7 @@ export default function SinglePost() {
     );
 
   return (
-    <main className="bg-gray-400 min-h-screen mt-[72px] sm:mt-24 pt-4 mb-[108px] md:px-12">
+    <main className="bg-gray-400 min-h-screen mt-[72px] sm:mt-24 mb-[108px] md:px-12">
       <article className="container shadow-lg mx-auto bg-indigo-50 rounded-lg animate-fade-in">
         <header className="relative">
           {/* Overlay on top of the header image */}
