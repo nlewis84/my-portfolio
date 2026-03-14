@@ -9,7 +9,7 @@ const BlurredUpImage = memo(() => {
 
   if (error) {
     return (
-      <div className="absolute inset-0 bg-gradient-to-b from-indigo-900 to-indigo-700">
+      <div className="absolute inset-0 bg-gray-900">
         <div className="flex items-center justify-center h-full">
           <p className="text-white text-xl">Failed to load image</p>
         </div>
@@ -22,7 +22,7 @@ const BlurredUpImage = memo(() => {
       src={src}
       alt="Bierstadt Lake in Estes Park, Colorado with Rocky Mountains in the background"
       loading="eager"
-      fetchpriority="high"
+      fetchPriority="high"
       onError={() => setError(true)}
       className={
         blur

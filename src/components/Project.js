@@ -37,12 +37,10 @@ const ProjectCard = memo(({ project }) => (
         })}
       </span>
       <span className="block mb-1">
-        <strong className="font-semibold">Organization:</strong>{" "}
-        {project.place}
+        <strong className="font-semibold">Organization:</strong> {project.place}
       </span>
       <span className="block mb-1">
-        <strong className="font-semibold">Type:</strong>{" "}
-        {project.projectType}
+        <strong className="font-semibold">Type:</strong> {project.projectType}
       </span>
     </div>
     {/* Divider */}
@@ -53,7 +51,7 @@ const ProjectCard = memo(({ project }) => (
   </a>
 ));
 
-ProjectCard.displayName = 'ProjectCard';
+ProjectCard.displayName = "ProjectCard";
 
 const Project = memo(() => {
   const [projectData, setProjectData] = useState(null);
@@ -70,11 +68,11 @@ const Project = memo(() => {
             projectType,
             link,
             tags
-        }`
+        }`,
       )
       .then((data) => setProjectData(data))
       .catch((err) => {
-        console.error('Error fetching project data:', err);
+        console.error("Error fetching project data:", err);
         setError(err);
       });
   }, []);
@@ -82,11 +80,17 @@ const Project = memo(() => {
   if (error) {
     return (
       <div className="flex flex-col h-screen">
-        <main className="flex-grow overflow-y-auto py-12 px-2 sm:px-12 bg-gray-400 mt-20 mb-24">
+        <main className="flex-grow overflow-y-auto py-12 px-2 sm:px-12 bg-gray-400 mt-20 mb-[108px]">
           <section className="container mx-auto">
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div
+              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+              role="alert"
+            >
               <strong className="font-bold">Error!</strong>
-              <span className="block sm:inline"> Failed to load projects. Please try refreshing the page.</span>
+              <span className="block sm:inline">
+                {" "}
+                Failed to load projects. Please try refreshing the page.
+              </span>
             </div>
           </section>
         </main>
@@ -97,7 +101,7 @@ const Project = memo(() => {
   return (
     <div className="flex flex-col h-screen">
       {/* Scrollable Content */}
-      <main className="flex-grow overflow-y-auto py-12 px-2 sm:px-12 bg-gray-400 mt-20 mb-24">
+      <main className="flex-grow overflow-y-auto py-12 px-2 sm:px-12 bg-gray-400 mt-20 mb-[108px]">
         <section className="container mx-auto">
           <h1 className="text-5xl flex justify-center cursive">My Projects</h1>
           <h2 className="text-lg text-gray-700 flex justify-center mb-6">
@@ -121,6 +125,6 @@ const Project = memo(() => {
   );
 });
 
-Project.displayName = 'Project';
+Project.displayName = "Project";
 
 export default Project;

@@ -14,6 +14,7 @@ const AuthorImage = memo(({ author }) => {
       className={`${imageClasses} animate-fade-in`}
       alt={author.name}
       loading="eager"
+      fetchPriority="high"
       width="160"
       height="160"
     />
@@ -75,7 +76,7 @@ const About = memo(() => {
           {/* Title and Name */}
           {author && (
             <>
-              <h1 className="cursive text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-indigo-50 mb-4 animate-fade-in-delay-1">
+              <h1 className="cursive text-4xl md:text-6xl lg:text-7xl text-indigo-50 mb-4 animate-fade-in-delay-1">
                 Hey there! I'm{" "}
                 <span className="text-yellow-400">{author.name}</span>
               </h1>

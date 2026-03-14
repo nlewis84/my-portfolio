@@ -84,7 +84,7 @@ export default function SinglePost() {
             body,
             "name": author->name,
             "authorImage": author->image,
-        }`
+        }`,
       )
       .then((data) => setSinglePost(data[0]))
       .catch(console.error);
@@ -96,11 +96,11 @@ export default function SinglePost() {
     Promise.all([
       sanityClient.fetch(
         `*[_type == "post" && publishedAt < $publishedAt] | order(publishedAt desc)[0]{ title, "slug": slug.current }`,
-        { publishedAt }
+        { publishedAt },
       ),
       sanityClient.fetch(
         `*[_type == "post" && publishedAt > $publishedAt] | order(publishedAt asc)[0]{ title, "slug": slug.current }`,
-        { publishedAt }
+        { publishedAt },
       ),
     ])
       .then(([prev, next]) => {
@@ -124,8 +124,8 @@ export default function SinglePost() {
     );
 
   return (
-    <main className="bg-gray-400 min-h-screen pt-24 pb-24 md:px-12 md:pb-48">
-      <article className="container shadow-lg mx-auto bg-indigo-50 rounded-lg">
+    <main className="bg-gray-400 min-h-screen mt-20 pt-4 mb-[108px] md:px-12">
+      <article className="container shadow-lg mx-auto bg-indigo-50 rounded-lg animate-fade-in">
         <header className="relative">
           {/* Overlay on top of the header image */}
           <div className="absolute h-full w-full flex flex-col items-center justify-center p-8">
@@ -142,7 +142,7 @@ export default function SinglePost() {
                   width="40"
                   height="40"
                 />
-                <p className="cursive flex items-center pl-4 text-lg sm:text-xl text-gray-800 lg:text-3xl">
+                <p className="cursive flex items-center pl-4 text-lg sm:text-xl text-gray-800">
                   {singlePost.name}
                 </p>
               </div>
@@ -185,8 +185,8 @@ export default function SinglePost() {
                 prevPost && nextPost
                   ? "justify-between"
                   : nextPost
-                  ? "justify-end"
-                  : "justify-start"
+                    ? "justify-end"
+                    : "justify-start"
               }`}
             >
               {prevPost && (

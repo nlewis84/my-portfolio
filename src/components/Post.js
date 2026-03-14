@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Posts() {
   const [postData, setPost] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     sanityClient
@@ -19,16 +20,40 @@ export default function Posts() {
                 },
                 alt
             }
-        }`
+        }`,
       )
       .then((data) => setPost(data))
-      .catch(console.error);
+      .catch((err) => {
+        console.error("Error fetching post data:", err);
+        setError(err);
+      });
   }, []);
+
+  if (error) {
+    return (
+      <div className="flex flex-col h-screen">
+        <main className="flex-grow overflow-y-auto py-12 px-2 sm:px-12 bg-gray-400 mt-20 mb-[108px]">
+          <section className="container mx-auto">
+            <div
+              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+              role="alert"
+            >
+              <strong className="font-bold">Error!</strong>
+              <span className="block sm:inline">
+                {" "}
+                Failed to load posts. Please try refreshing the page.
+              </span>
+            </div>
+          </section>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col h-screen">
       {/* Scrollable Content */}
-      <main className="flex-grow overflow-y-auto py-12 px-2 sm:px-12 bg-gray-400 mt-20 mb-24">
+      <main className="flex-grow overflow-y-auto py-12 px-2 sm:px-12 bg-gray-400 mt-20 mb-[108px]">
         <section className="container mx-auto">
           <h1 className="text-5xl flex justify-center cursive">My Blog</h1>
           <h2 className="text-lg text-gray-700 flex justify-center mb-6">
@@ -42,8 +67,11 @@ export default function Posts() {
                   className="animate-fade-in-stagger min-h-[16rem]"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <Link to={"/post/" + post.slug.current} className="block h-full">
-                    <span className="block h-64 relative rounded shadow leading-snug bg-indigo-50 border-l-8 border-yellow-400 sm:transition-all sm:duration-300 sm:transform sm:hover:scale-105 sm:hover:shadow-xl">
+                  <Link
+                    to={"/post/" + post.slug.current}
+                    className="block h-full"
+                  >
+                    <span className="block h-64 relative rounded-lg shadow leading-snug bg-indigo-50 border-l-8 border-yellow-400 sm:transition-all sm:duration-300 sm:transform sm:hover:scale-105 sm:hover:shadow-xl">
                       <img
                         src={post.mainImage.asset.url}
                         alt={post.mainImage.alt || post.title}
@@ -62,7 +90,7 @@ export default function Posts() {
                                 year: "numeric",
                                 month: "long",
                                 day: "numeric",
-                              }
+                              },
                             )}
                           </span>
                         </h3>
