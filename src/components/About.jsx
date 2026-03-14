@@ -69,7 +69,7 @@ const About = memo(() => {
       {/* Background rendered by App (shared with Home) */}
 
       {/* Centered Content */}
-      <div className="relative flex flex-col justify-start items-center grow text-left pt-4 pb-16 sm:pb-4 px-2 sm:px-4 lg:px-8 mt-[72px] sm:mt-24">
+      <div className="relative flex flex-col justify-start items-center grow text-left pb-16 sm:pb-4 px-2 sm:px-4 lg:px-8 mt-[72px] sm:mt-24">
         <section
           className="bg-gray-900 bg-opacity-75 rounded-b-lg p-4 md:p-6 lg:p-10 shadow-2xl w-full max-w-3xl min-h-96"
           role="article"
@@ -85,9 +85,7 @@ const About = memo(() => {
               </h1>
 
               <div className="prose text-lg lg:text-xl text-indigo-50 pt-4 leading-relaxed animate-fade-in-delay-2">
-                <PortableText
-                  value={author.bio}
-                />
+                <PortableText value={author.bio} />
               </div>
             </>
           )}
