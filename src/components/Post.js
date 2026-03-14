@@ -32,7 +32,7 @@ export default function Posts() {
   if (error) {
     return (
       <div className="flex flex-col h-screen">
-        <main className="flex-grow overflow-y-auto py-12 px-2 sm:px-12 bg-gray-400 mt-20 mb-[108px]">
+        <main className="flex-grow overflow-y-auto py-12 px-2 sm:px-12 bg-gray-400 mt-[72px] sm:mt-24 mb-[108px]">
           <section className="container mx-auto">
             <div
               className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
@@ -53,7 +53,7 @@ export default function Posts() {
   return (
     <div className="flex flex-col h-screen">
       {/* Scrollable Content */}
-      <main className="flex-grow overflow-y-auto py-12 px-2 sm:px-12 bg-gray-400 mt-20 mb-[108px]">
+      <main className="flex-grow overflow-y-auto py-12 px-2 sm:px-12 bg-gray-400 mt-[72px] sm:mt-24 mb-[108px]">
         <section className="container mx-auto">
           <h1 className="text-5xl flex justify-center cursive">My Blog</h1>
           <h2 className="text-lg text-gray-700 flex justify-center mb-6">

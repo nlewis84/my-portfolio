@@ -4,7 +4,8 @@ import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 
 const AuthorImage = memo(({ author }) => {
-  const imageClasses = "rounded-full w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 mx-auto mb-8 transition-transform duration-300 hover:scale-105";
+  const imageClasses =
+    "rounded-full w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 mx-auto mb-8 transition-transform duration-300 hover:scale-105";
 
   if (!author?.authorImage) return null;
 
@@ -21,7 +22,7 @@ const AuthorImage = memo(({ author }) => {
   );
 });
 
-AuthorImage.displayName = 'AuthorImage';
+AuthorImage.displayName = "AuthorImage";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -39,11 +40,11 @@ const About = memo(() => {
             name,
             bio,
             "authorImage": image.asset->url
-        }`
+        }`,
       )
       .then((data) => setAuthor(data[0]))
       .catch((err) => {
-        console.error('Error fetching author data:', err);
+        console.error("Error fetching author data:", err);
         setError(err);
       });
   }, []);
@@ -51,9 +52,11 @@ const About = memo(() => {
   if (error) {
     return (
       <main className="relative flex flex-col min-h-screen">
-        <div className="relative flex flex-col justify-start items-center flex-grow text-left py-4 lg:px-8 mt-20">
+        <div className="relative flex flex-col justify-start items-center flex-grow text-left pt-4 pb-8 sm:pb-4 px-2 sm:px-4 lg:px-8 mt-[72px] sm:mt-24">
           <section className="bg-gray-900 bg-opacity-75 rounded-b-lg p-4 md:p-6 lg:p-10 shadow-2xl w-full max-w-3xl">
-            <h1 className="text-red-500 text-2xl mb-4">Error Loading Content</h1>
+            <h1 className="text-red-500 text-2xl mb-4">
+              Error Loading Content
+            </h1>
             <p className="text-indigo-50">Please try refreshing the page.</p>
           </section>
         </div>
@@ -66,13 +69,13 @@ const About = memo(() => {
       {/* Background rendered by App (shared with Home) */}
 
       {/* Centered Content */}
-      <div className="relative flex flex-col justify-start items-center flex-grow text-left py-4 lg:px-8 mt-20">
-        <section 
+      <div className="relative flex flex-col justify-start items-center flex-grow text-left pt-4 pb-16 sm:pb-4 px-2 sm:px-4 lg:px-8 mt-[72px] sm:mt-24">
+        <section
           className="bg-gray-900 bg-opacity-75 rounded-b-lg p-4 md:p-6 lg:p-10 shadow-2xl w-full max-w-3xl min-h-[24rem]"
           role="article"
         >
           <AuthorImage author={author} />
-          
+
           {/* Title and Name */}
           {author && (
             <>
@@ -96,6 +99,6 @@ const About = memo(() => {
   );
 });
 
-About.displayName = 'About';
+About.displayName = "About";
 
 export default About;

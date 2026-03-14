@@ -124,12 +124,12 @@ export default function SinglePost() {
     );
 
   return (
-    <main className="bg-gray-400 min-h-screen mt-20 pt-4 mb-[108px] md:px-12">
+    <main className="bg-gray-400 min-h-screen mt-[72px] sm:mt-24 pt-4 mb-[108px] md:px-12">
       <article className="container shadow-lg mx-auto bg-indigo-50 rounded-lg animate-fade-in">
         <header className="relative">
           {/* Overlay on top of the header image */}
-          <div className="absolute h-full w-full flex flex-col items-center justify-center p-8">
-            <div className="bg-yellow-400 bg-opacity-80 rounded p-10 lg:p-16">
+          <div className="absolute h-full w-full flex flex-col items-center justify-center p-2 sm:p-4 lg:p-8">
+            <div className="bg-yellow-400 bg-opacity-80 rounded p-4 sm:p-8 lg:p-16">
               <h1 className="cursive text-center text-4xl sm:text-5xl lg:text-7xl mb-4">
                 {singlePost.title}
               </h1>
