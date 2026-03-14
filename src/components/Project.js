@@ -55,31 +55,6 @@ const ProjectCard = memo(({ project }) => (
 
 ProjectCard.displayName = 'ProjectCard';
 
-const LoadingSkeleton = memo(() => (
-  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {[1, 2, 3].map((index) => (
-      <div
-        key={index}
-        className="relative rounded-lg shadow bg-indigo-50 border-l-8 border-yellow-400 p-6 animate-pulse"
-      >
-        <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
-        <div className="space-y-3">
-          <div className="h-4 bg-gray-200 rounded w-1/2"></div>
-          <div className="h-4 bg-gray-200 rounded w-2/3"></div>
-          <div className="h-4 bg-gray-200 rounded w-1/3"></div>
-        </div>
-        <div className="border-t border-gray-200 my-4"></div>
-        <div className="space-y-2">
-          <div className="h-4 bg-gray-200 rounded"></div>
-          <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-        </div>
-      </div>
-    ))}
-  </div>
-));
-
-LoadingSkeleton.displayName = 'LoadingSkeleton';
-
 const Project = memo(() => {
   const [projectData, setProjectData] = useState(null);
   const [error, setError] = useState(null);
@@ -128,9 +103,9 @@ const Project = memo(() => {
           <h2 className="text-lg text-gray-700 flex justify-center mb-6">
             Check out what I've been building
           </h2>
-          {projectData ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projectData.map((project, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projectData &&
+              projectData.map((project, index) => (
                 <div
                   key={index}
                   className="animate-fade-in-stagger min-h-[20rem]"
@@ -139,10 +114,7 @@ const Project = memo(() => {
                   <ProjectCard project={project} />
                 </div>
               ))}
-            </div>
-          ) : (
-            <LoadingSkeleton />
-          )}
+          </div>
         </section>
       </main>
     </div>
