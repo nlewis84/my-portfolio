@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { ArrowRight } from "@phosphor-icons/react";
 import sanityClient from "../client.js";
 
@@ -96,9 +96,11 @@ const Project = memo(() => {
       {/* Scrollable Content */}
       <main className="grow overflow-y-auto pt-6 pb-12 px-2 sm:px-12 bg-gray-400 mt-[72px] sm:mt-24 mb-[108px]">
         <section className="container mx-auto">
-          <h1 className="text-5xl flex justify-center cursive animate-fade-in">My Projects</h1>
+          <h1 className="text-5xl flex justify-center cursive animate-fade-in">
+            My Projects
+          </h1>
           <h2 className="text-lg text-gray-700 flex justify-center mb-6 animate-fade-in-delay-1">
-            Check out what I've been building
+            Check out what I&apos;ve been building
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projectData &&

@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap')
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap")
 layer(base);
 
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin '@tailwindcss/typography';
 
@@ -53,7 +53,6 @@ layer(base);
   animation: fadeIn 0.5s ease-out 0.2s forwards;
 }
 
-
 .animate-fade-in-delay-3 {
   opacity: 0;
   animation: fadeIn 0.5s ease-out 0.3s forwards;
@@ -75,7 +74,7 @@ pre {
   padding: 16px;
   border-radius: 4px;
   overflow-x: auto;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
 }
@@ -86,10 +85,10 @@ code {
 
 .inline-code,
 .prose :not(pre) > code {
-  background-color: #E0E7FF;
+  background-color: #e0e7ff;
   padding: 2px 6px;
   border-radius: 4px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 0.875em;
 }
 
@@ -108,5 +107,5 @@ code {
 /* Restore Prism (pre) override (for Prism code blocks) */
 /* If you want to target only Prism-specific code blocks */
 pre[class*="language-"] {
-  background-color: hsla(0, 0%, 100%, .5) !important;
+  background-color: hsla(0, 0%, 100%, 0.5) !important;
 }

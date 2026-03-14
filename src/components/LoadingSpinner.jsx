@@ -1,13 +1,13 @@
-import React, { memo } from 'react';
+import { memo } from "react";
 
 const LoadingSpinner = memo(() => {
   return (
-    <div 
+    <div
       className="flex items-center justify-center min-h-screen"
       role="status"
       aria-label="Loading content"
     >
-      <div 
+      <div
         className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-yellow-400"
         aria-hidden="true"
       />
@@ -16,6 +16,6 @@ const LoadingSpinner = memo(() => {
   );
 });
 
-LoadingSpinner.displayName = 'LoadingSpinner';
+LoadingSpinner.displayName = "LoadingSpinner";
 
-export default LoadingSpinner; 
+export default LoadingSpinner;

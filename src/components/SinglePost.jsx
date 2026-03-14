@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import sanityClient from "../client.js";
 import { createImageUrlBuilder } from "@sanity/image-url";
@@ -136,10 +136,15 @@ export default function SinglePost() {
   const [prevPost, setPrevPost] = useState(null);
   const [nextPost, setNextPost] = useState(null);
   const { slug } = useParams();
+  const [prevSlug, setPrevSlug] = useState(slug);
 
-  useEffect(() => {
+  if (prevSlug !== slug) {
+    setPrevSlug(slug);
     setPrevPost(null);
     setNextPost(null);
+  }
+
+  useEffect(() => {
     sanityClient
       .fetch(
         `*[slug.current == "${slug}"]{

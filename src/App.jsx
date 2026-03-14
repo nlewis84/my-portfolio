@@ -13,7 +13,8 @@ const Project = lazy(() => import("./components/Project"));
 
 function AppContent() {
   const location = useLocation();
-  const showHeroBackground = location.pathname === "/" || location.pathname === "/about";
+  const showHeroBackground =
+    location.pathname === "/" || location.pathname === "/about";
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import { SocialIcon } from "react-social-icons";
 
 const SocialLink = memo(({ url, className, label }) => (
@@ -14,7 +14,7 @@ const SocialLink = memo(({ url, className, label }) => (
   />
 ));
 
-SocialLink.displayName = 'SocialLink';
+SocialLink.displayName = "SocialLink";
 
 const VenmoLink = memo(() => (
   <a
@@ -103,25 +103,25 @@ const VenmoLink = memo(() => (
   </a>
 ));
 
-VenmoLink.displayName = 'VenmoLink';
+VenmoLink.displayName = "VenmoLink";
 
 const Footer = memo(() => {
   return (
-    <footer 
+    <footer
       className="bg-gray-900 fixed bottom-0 w-full z-10 shadow-md"
       role="contentinfo"
     >
       <div className="container mx-auto flex justify-center">
-        <div 
+        <div
           className="inline-flex py-3 px-3 my-6"
           role="navigation"
           aria-label="Social media links"
         >
-          <SocialLink 
+          <SocialLink
             url="https://www.linkedin.com/in/nathanlewis-dev/"
             label="LinkedIn Profile"
           />
-          <SocialLink 
+          <SocialLink
             url="https://github.com/nlewis84"
             label="GitHub Profile"
           />
@@ -132,6 +132,6 @@ const Footer = memo(() => {
   );
 });
 
-Footer.displayName = 'Footer';
+Footer.displayName = "Footer";
 
 export default Footer;

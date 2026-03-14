@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import { memo, useState } from "react";
 import useProgressiveImg from "../utils/progressiveImg";
 import smallImage from "../2014-Bierstadt-Lake-small.jpeg";
 import largeImage from "../2014-Bierstadt-Lake.jpg";

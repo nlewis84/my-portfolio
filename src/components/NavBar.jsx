@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect, useCallback } from "react";
+import { memo, useState, useCallback } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
 const NavLinkItem = memo(({ to, children, onClick }) => {
@@ -21,7 +21,7 @@ const NavLinkItem = memo(({ to, children, onClick }) => {
   );
 });
 
-NavLinkItem.displayName = 'NavLinkItem';
+NavLinkItem.displayName = "NavLinkItem";
 
 const MobileNavLink = memo(({ to, children, onClick }) => {
   const location = useLocation();
@@ -43,26 +43,28 @@ const MobileNavLink = memo(({ to, children, onClick }) => {
   );
 });
 
-MobileNavLink.displayName = 'MobileNavLink';
+MobileNavLink.displayName = "MobileNavLink";
 
 const Navbar = memo(() => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const [prevPathname, setPrevPathname] = useState(location.pathname);
 
-  useEffect(() => {
+  if (prevPathname !== location.pathname) {
+    setPrevPathname(location.pathname);
     setMenuOpen(false);
-  }, [location.pathname]);
+  }
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
-  const toggleMenu = useCallback(() => setMenuOpen(prev => !prev), []);
+  const toggleMenu = useCallback(() => setMenuOpen((prev) => !prev), []);
 
   return (
-    <header 
+    <header
       className="bg-gray-900 fixed top-0 w-full z-10 shadow-md"
       role="banner"
     >
       <div className="container pl-4 pr-4 flex justify-between items-center">
-        <nav 
+        <nav
           className="hidden sm:inline-flex text-left text-indigo-50"
           role="navigation"
           aria-label="Main navigation"
@@ -102,7 +104,13 @@ const Navbar = memo(() => {
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -119,15 +127,21 @@ const Navbar = memo(() => {
           role="navigation"
           aria-label="Mobile navigation"
         >
-          <MobileNavLink to="/post" onClick={closeMenu}>Blog</MobileNavLink>
-          <MobileNavLink to="/project" onClick={closeMenu}>Projects</MobileNavLink>
-          <MobileNavLink to="/about" onClick={closeMenu}>About</MobileNavLink>
+          <MobileNavLink to="/post" onClick={closeMenu}>
+            Blog
+          </MobileNavLink>
+          <MobileNavLink to="/project" onClick={closeMenu}>
+            Projects
+          </MobileNavLink>
+          <MobileNavLink to="/about" onClick={closeMenu}>
+            About
+          </MobileNavLink>
         </nav>
       )}
     </header>
   );
 });
 
-Navbar.displayName = 'Navbar';
+Navbar.displayName = "Navbar";
 
 export default Navbar;

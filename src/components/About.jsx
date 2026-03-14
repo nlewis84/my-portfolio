@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import sanityClient from "../client.js";
 import { createImageUrlBuilder } from "@sanity/image-url";
 import { PortableText } from "@portabletext/react";
@@ -80,7 +80,7 @@ const About = memo(() => {
           {author && (
             <>
               <h1 className="cursive text-4xl md:text-6xl lg:text-7xl text-indigo-50 mb-4 animate-fade-in-delay-1">
-                Hey there! I'm{" "}
+                Hey there! I&apos;m{" "}
                 <span className="text-yellow-400">{author.name}</span>
               </h1>
 

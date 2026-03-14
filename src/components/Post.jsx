@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import sanityClient from "../client.js";
 import { Link } from "react-router-dom";
 
@@ -55,9 +55,11 @@ export default function Posts() {
       {/* Scrollable Content */}
       <main className="grow overflow-y-auto pt-6 pb-12 px-2 sm:px-12 bg-gray-400 mt-[72px] sm:mt-24 mb-[108px]">
         <section className="container mx-auto">
-          <h1 className="text-5xl flex justify-center cursive animate-fade-in">My Blog</h1>
+          <h1 className="text-5xl flex justify-center cursive animate-fade-in">
+            My Blog
+          </h1>
           <h2 className="text-lg text-gray-700 flex justify-center mb-6 animate-fade-in-delay-1">
-            Check out what I'm writing about
+            Check out what I&apos;m writing about
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {postData &&
