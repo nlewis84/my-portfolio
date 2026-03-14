@@ -25,3 +25,5 @@ yarn-error.log*
 /blog-planning
 
 .cursor
+
+style_guide/
