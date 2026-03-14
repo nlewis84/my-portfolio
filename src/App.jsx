@@ -22,7 +22,7 @@ function AppContent() {
         {showHeroBackground && (
           <>
             <BlurredUpImage />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/20 pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-b from-black/10 to-black/20 pointer-events-none" />
           </>
         )}
         <Suspense fallback={null}>

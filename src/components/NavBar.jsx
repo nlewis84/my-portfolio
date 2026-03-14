@@ -97,7 +97,7 @@ const Navbar = memo(() => {
         </NavLink>
 
         <button
-          className="sm:hidden text-indigo-50 p-2 rounded hover:text-yellow-400 transition-colors duration-200"
+          className="sm:hidden text-indigo-50 p-2 rounded-sm hover:text-yellow-400 transition-colors duration-200"
           onClick={toggleMenu}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}

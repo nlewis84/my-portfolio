@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from "react";
 import sanityClient from "../client.js";
-import imageUrlBuilder from "@sanity/image-url";
-import BlockContent from "@sanity/block-content-to-react";
+import { createImageUrlBuilder } from "@sanity/image-url";
+import { PortableText } from "@portabletext/react";
 
 const AuthorImage = memo(({ author }) => {
   const imageClasses =
@@ -24,7 +24,7 @@ const AuthorImage = memo(({ author }) => {
 
 AuthorImage.displayName = "AuthorImage";
 
-const builder = imageUrlBuilder(sanityClient);
+const builder = createImageUrlBuilder(sanityClient);
 function urlFor(source) {
   return builder.image(source);
 }
@@ -52,7 +52,7 @@ const About = memo(() => {
   if (error) {
     return (
       <main className="relative flex flex-col min-h-screen">
-        <div className="relative flex flex-col justify-start items-center flex-grow text-left pt-4 pb-8 sm:pb-4 px-2 sm:px-4 lg:px-8 mt-[72px] sm:mt-24">
+        <div className="relative flex flex-col justify-start items-center grow text-left pt-4 pb-8 sm:pb-4 px-2 sm:px-4 lg:px-8 mt-[72px] sm:mt-24">
           <section className="bg-gray-900 bg-opacity-75 rounded-b-lg p-4 md:p-6 lg:p-10 shadow-2xl w-full max-w-3xl">
             <h1 className="text-red-500 text-2xl mb-4">
               Error Loading Content
@@ -69,9 +69,9 @@ const About = memo(() => {
       {/* Background rendered by App (shared with Home) */}
 
       {/* Centered Content */}
-      <div className="relative flex flex-col justify-start items-center flex-grow text-left pt-4 pb-16 sm:pb-4 px-2 sm:px-4 lg:px-8 mt-[72px] sm:mt-24">
+      <div className="relative flex flex-col justify-start items-center grow text-left pt-4 pb-16 sm:pb-4 px-2 sm:px-4 lg:px-8 mt-[72px] sm:mt-24">
         <section
-          className="bg-gray-900 bg-opacity-75 rounded-b-lg p-4 md:p-6 lg:p-10 shadow-2xl w-full max-w-3xl min-h-[24rem]"
+          className="bg-gray-900 bg-opacity-75 rounded-b-lg p-4 md:p-6 lg:p-10 shadow-2xl w-full max-w-3xl min-h-96"
           role="article"
         >
           <AuthorImage author={author} />
@@ -85,10 +85,8 @@ const About = memo(() => {
               </h1>
 
               <div className="prose text-lg lg:text-xl text-indigo-50 pt-4 leading-relaxed animate-fade-in-delay-2">
-                <BlockContent
-                  blocks={author.bio}
-                  projectId="46knf8eh"
-                  dataset="production"
+                <PortableText
+                  value={author.bio}
                 />
               </div>
             </>

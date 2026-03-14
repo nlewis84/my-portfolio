@@ -32,10 +32,10 @@ export default function Posts() {
   if (error) {
     return (
       <div className="flex flex-col h-screen">
-        <main className="flex-grow overflow-y-auto pt-6 pb-12 px-2 sm:px-12 bg-gray-400 mt-[72px] sm:mt-24 mb-[108px]">
+        <main className="grow overflow-y-auto pt-6 pb-12 px-2 sm:px-12 bg-gray-400 mt-[72px] sm:mt-24 mb-[108px]">
           <section className="container mx-auto">
             <div
-              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-sm relative"
               role="alert"
             >
               <strong className="font-bold">Error!</strong>
@@ -53,7 +53,7 @@ export default function Posts() {
   return (
     <div className="flex flex-col h-screen">
       {/* Scrollable Content */}
-      <main className="flex-grow overflow-y-auto pt-6 pb-12 px-2 sm:px-12 bg-gray-400 mt-[72px] sm:mt-24 mb-[108px]">
+      <main className="grow overflow-y-auto pt-6 pb-12 px-2 sm:px-12 bg-gray-400 mt-[72px] sm:mt-24 mb-[108px]">
         <section className="container mx-auto">
           <h1 className="text-5xl flex justify-center cursive animate-fade-in">My Blog</h1>
           <h2 className="text-lg text-gray-700 flex justify-center mb-6 animate-fade-in-delay-1">
@@ -64,14 +64,14 @@ export default function Posts() {
               postData.map((post, index) => (
                 <article
                   key={index}
-                  className="animate-fade-in-stagger min-h-[16rem]"
+                  className="animate-fade-in-stagger min-h-64"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <Link
                     to={"/post/" + post.slug.current}
                     className="block h-full"
                   >
-                    <span className="block h-64 relative rounded-lg shadow leading-snug bg-indigo-50 border-l-8 border-yellow-400 sm:transition-all sm:duration-300 sm:transform sm:hover:scale-105 sm:hover:shadow-xl">
+                    <span className="block h-64 relative rounded-lg shadow-sm leading-snug bg-indigo-50 border-l-8 border-yellow-400 sm:transition-all sm:duration-300 sm:transform sm:hover:scale-105 sm:hover:shadow-xl">
                       <img
                         src={post.mainImage.asset.url}
                         alt={post.mainImage.alt || post.title}

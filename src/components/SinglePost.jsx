@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import sanityClient from "../client.js";
-import imageUrlBuilder from "@sanity/image-url";
-import BlockContent from "@sanity/block-content-to-react";
+import { createImageUrlBuilder } from "@sanity/image-url";
+import { PortableText } from "@portabletext/react";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import Prism from "prismjs";
-import { Copy, Check } from "phosphor-react";
+import { Copy, Check } from "@phosphor-icons/react";
 
 import "prismjs/themes/prism.css";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-css";
 
-const builder = imageUrlBuilder(sanityClient);
+const builder = createImageUrlBuilder(sanityClient);
 function urlFor(source) {
   return builder.image(source);
 }
@@ -100,14 +102,32 @@ function processBlocksForInlineCode(blocks) {
   });
 }
 
-const serializers = {
+const portableTextComponents = {
   types: {
-    code: (props) => (
-      <CodeBlock code={props.node.code} language={props.node.language} />
+    code: ({ value }) => (
+      <CodeBlock code={value.code} language={value.language} />
     ),
   },
   marks: {
     code: ({ children }) => <code className="inline-code">{children}</code>,
+  },
+};
+
+const markdownComponents = {
+  code({ className, children, ...props }) {
+    const match = /language-(\w+)/.exec(className || "");
+    const codeString = String(children).replace(/\n$/, "");
+    if (match) {
+      return <CodeBlock code={codeString} language={match[1]} />;
+    }
+    return (
+      <code className="inline-code" {...props}>
+        {children}
+      </code>
+    );
+  },
+  pre({ children }) {
+    return <>{children}</>;
   },
 };
 
@@ -133,6 +153,7 @@ export default function SinglePost() {
                     url
                 }
             },
+            markdownBody,
             body,
             "name": author->name,
             "authorImage": author->image,
@@ -181,7 +202,7 @@ export default function SinglePost() {
         <header className="relative">
           {/* Overlay on top of the header image */}
           <div className="absolute h-full w-full flex flex-col items-center justify-center p-2 sm:p-4 lg:p-8">
-            <div className="bg-yellow-400 bg-opacity-80 rounded p-4 sm:p-8 lg:p-16">
+            <div className="bg-yellow-400 bg-opacity-80 rounded-sm p-4 sm:p-8 lg:p-16">
               <h1 className="cursive text-center text-4xl sm:text-5xl lg:text-7xl mb-4">
                 {singlePost.title}
               </h1>
@@ -218,12 +239,19 @@ export default function SinglePost() {
           </aside>
 
           {/* Main Content Block */}
-          <BlockContent
-            blocks={processBlocksForInlineCode(singlePost.body)}
-            projectId="46knf8eh"
-            dataset="production"
-            serializers={serializers}
-          />
+          {singlePost.markdownBody ? (
+            <Markdown
+              remarkPlugins={[remarkGfm]}
+              components={markdownComponents}
+            >
+              {singlePost.markdownBody}
+            </Markdown>
+          ) : (
+            <PortableText
+              value={processBlocksForInlineCode(singlePost.body)}
+              components={portableTextComponents}
+            />
+          )}
         </div>
 
         {/* Prev/Next Post Navigation */}
@@ -244,7 +272,7 @@ export default function SinglePost() {
               {prevPost && (
                 <Link
                   to={"/post/" + prevPost.slug}
-                  className="max-w-md rounded shadow border-l-8 border-yellow-400 bg-indigo-50 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+                  className="max-w-md rounded-sm shadow-sm border-l-8 border-yellow-400 bg-indigo-50 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
                 >
                   <span className="text-gray-500 text-sm block mb-1">
                     Previous
@@ -257,7 +285,7 @@ export default function SinglePost() {
               {nextPost && (
                 <Link
                   to={"/post/" + nextPost.slug}
-                  className="max-w-md rounded shadow border-l-8 border-yellow-400 bg-indigo-50 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg text-right sm:ml-auto"
+                  className="max-w-md rounded-sm shadow-sm border-l-8 border-yellow-400 bg-indigo-50 p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg text-right sm:ml-auto"
                 >
                   <span className="text-gray-500 text-sm block mb-1">Next</span>
                   <span className="cursive text-gray-800 text-xl lg:text-2xl font-bold">

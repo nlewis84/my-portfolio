@@ -30,14 +30,14 @@ class ErrorBoundary extends React.Component {
             </p>
             <button
               onClick={() => window.location.reload()}
-              className="bg-yellow-400 text-gray-900 px-4 py-2 rounded hover:bg-yellow-500 transition-colors"
+              className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-sm hover:bg-yellow-500 transition-colors"
             >
               Refresh Page
             </button>
             {process.env.NODE_ENV === 'development' && (
               <details className="mt-4 text-sm text-gray-500">
                 <summary>Error Details</summary>
-                <pre className="mt-2 p-2 bg-gray-100 rounded overflow-auto">
+                <pre className="mt-2 p-2 bg-gray-100 rounded-sm overflow-auto">
                   {this.state.error && this.state.error.toString()}
                   {this.state.errorInfo && this.state.errorInfo.componentStack}
                 </pre>
