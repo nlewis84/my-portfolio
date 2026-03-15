@@ -57,41 +57,6 @@ Opens Sanity Studio for managing blog posts, projects, and authors.
 
 ---
 
-## Project Structure
-
-```
-my-portfolio/
-├── index.html              # App entry point (Vite)
-├── vite.config.js          # Vite configuration
-├── public/                 # Static assets, favicon, manifest
-│   ├── _redirects          # Netlify SPA routing
-│   ├── robots.txt
-│   └── sitemap.xml
-├── scripts/
-│   ├── generate-sitemap.js
-│   └── export-blog-posts.js
-├── src/
-│   ├── components/         # React components (.jsx)
-│   │   ├── Home.jsx
-│   │   ├── About.jsx
-│   │   ├── NavBar.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Post.jsx, SinglePost.jsx
-│   │   ├── Project.jsx
-│   │   ├── BlurredUpImage.jsx
-│   │   └── ErrorBoundary.jsx
-│   ├── utils/              # Utilities (e.g. progressiveImg)
-│   ├── client.js           # Sanity client config
-│   ├── index.css            # Tailwind v4 + custom styles
-│   └── index.jsx           # App entry point
-└── studio/                 # Sanity Studio v3
-    ├── sanity.config.js    # Studio configuration
-    ├── sanity.cli.js       # CLI configuration
-    └── schemas/            # Content schemas (post, project, author, blockContent)
-```
-
----
-
 ## Scripts
 
 | Command | Description |
